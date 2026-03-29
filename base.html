@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<!--
+  BASE.HTML — 吴优简历完整内容库
+  ================================
+  这是所有经历的完整版本，不针对任何岗位裁剪。
+  每次针对新JD，从这里取内容生成定制版。
+  不要直接投递这个文件。
+
+  简历版本策略：
+  ┌─────────────────────────────────────────────────────┐
+  │ CS版（吴优简历CS.pdf）— 车企社招                      │
+  │  · Header：强调汽车文化+AI Agent+C端                  │
+  │  · 顺序：工作经历 → 教育 → 校园项目（CDS提前）         │
+  │  · 包含：EasyClaw、西山居、泰迪、CDS、健康卫士、约克游  │
+  │  · 不含：图像智投                                      │
+  ├─────────────────────────────────────────────────────┤
+  │ PS版（吴优简历PS.pdf）— 互联网社招                     │
+  │  · Header：强调HCI+产品全流程+AI增长                   │
+  │  · 顺序：工作经历 → 教育 → 校园项目                    │
+  │  · 包含：EasyClaw、西山居、泰迪、健康卫士、图像智投、约克游│
+  │  · 不含：CDS                                          │
+  ├─────────────────────────────────────────────────────┤
+  │ CX版（吴优简历CX.pdf）— 车企校招                       │
+  │  · Header：强调汽车文化+AI+C端，标注"26届硕士 已毕业"   │
+  │  · 顺序：教育 → 工作经历 → 校园项目（CDS提前）          │
+  │  · 包含：EasyClaw、西山居、泰迪、CDS、健康卫士、约克游   │
+  │  · 不含：图像智投                                      │
+  └─────────────────────────────────────────────────────┘
+
+  已生成的定制版：
+  - xpeng-ai-pm.html    小鹏汽车 AI产品经理（C端）A120085
+-->
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>吴优 - 简历完整版（base）</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      font-size: 11px;
+      color: #1a1a1a;
+      background: #fff;
+      line-height: 1.6;
+    }
+    .page {
+      width: 794px;
+      min-height: 1123px;
+      margin: 0 auto;
+      padding: 36px 44px;
+      background: #fff;
+    }
+    .header {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 14px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid #1a1a1a;
+    }
+    .header-avatar { width: 72px; height: 90px; object-fit: cover; flex-shrink: 0; border-radius: 2px; }
+    .header-body { flex: 1; }
+    .header-name { font-size: 32px; font-weight: 700; letter-spacing: 0.15em; color: #1a1a1a; line-height: 1; margin-bottom: 8px; }
+    .header-bullets { list-style: none; display: flex; flex-direction: column; gap: 2px; margin-bottom: 8px; }
+    .header-bullets li { font-size: 10.5px; color: #333; line-height: 1.5; padding-left: 12px; position: relative; }
+    .header-bullets li::before { content: '•'; position: absolute; left: 0; color: #1a1a1a; }
+    .header-info { font-size: 10px; color: #555; letter-spacing: 0.02em; }
+    .header-info span { margin: 0 6px; color: #bbb; }
+    .section { margin-bottom: 14px; }
+    .section-title { font-size: 13px; font-weight: 700; color: #1a1a1a; border-bottom: 1.5px solid #1a1a1a; padding-bottom: 3px; margin-bottom: 10px; letter-spacing: 0.05em; }
+    .job { margin-bottom: 12px; }
+    .job-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px; }
+    .job-left { display: flex; align-items: baseline; gap: 10px; }
+    .job-company { font-size: 12px; font-weight: 700; color: #1a1a1a; }
+    .job-title { font-size: 10.5px; font-weight: 500; color: #444; }
+    .job-period { font-size: 10px; color: #666; white-space: nowrap; }
+    .job-tag-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 5px; }
+    .job-tag { font-size: 9.5px; color: #555; border: 1px solid #ccc; padding: 1px 7px; border-radius: 2px; }
+    .bullets { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .bullets li { font-size: 10.5px; color: #333; padding-left: 14px; position: relative; line-height: 1.6; }
+    .bullets li::before { content: '·'; position: absolute; left: 2px; color: #1a1a1a; font-size: 14px; line-height: 1.2; }
+    .bullets li strong { font-weight: 600; color: #1a1a1a; }
+    .job-result { margin-top: 4px; font-size: 10px; color: #444; padding: 4px 10px; background: #f5f5f5; border-left: 2px solid #1a1a1a; }
+    .work-link { font-size: 10px; color: #555; margin: 3px 0 3px 14px; font-style: italic; }
+    .edu-item { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+    .edu-school { font-size: 12px; font-weight: 700; color: #1a1a1a; }
+    .edu-degree { font-size: 10.5px; color: #444; margin-top: 1px; }
+    .edu-desc { font-size: 10px; color: #666; margin-top: 2px; }
+    .edu-right { text-align: right; }
+    .edu-title { font-size: 11px; font-weight: 600; color: #1a1a1a; }
+    .edu-period { font-size: 10px; color: #666; margin-top: 2px; }
+    .proj { margin-bottom: 12px; }
+    .proj-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px; }
+    .proj-name { font-size: 12px; font-weight: 700; color: #1a1a1a; }
+    .proj-period { font-size: 10px; color: #666; }
+    .proj-role-row { display: flex; gap: 6px; margin-bottom: 4px; flex-wrap: wrap; }
+    .proj-role { font-size: 9.5px; color: #555; border: 1px solid #ccc; padding: 1px 7px; border-radius: 2px; }
+    .proj-bg { font-size: 10.5px; color: #555; margin-bottom: 4px; line-height: 1.5; }
+    .proj-bg strong { color: #333; font-weight: 600; }
+    .proj-result { margin-top: 4px; font-size: 10px; color: #444; padding: 4px 10px; background: #f5f5f5; border-left: 2px solid #1a1a1a; }
+    .awards-table { width: 100%; border-collapse: collapse; }
+    .awards-table tr { border-bottom: 1px solid #f0f0f0; }
+    .awards-table td { padding: 4px 6px; font-size: 10.5px; color: #333; vertical-align: top; }
+    .awards-table td:first-child { font-weight: 600; white-space: nowrap; color: #1a1a1a; width: 70px; }
+    .awards-table td:last-child { white-space: nowrap; color: #666; text-align: right; width: 55px; }
+    .award-level { color: #1a1a1a; font-weight: 600; }
+    @media print { body { background: #fff; } .page { margin: 0; padding: 28px 40px; } }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══ HEADER ══ -->
+  <div class="header">
+    <img class="header-avatar" src="../avatar.jpg" alt="吴优" />
+    <div class="header-body">
+      <div class="header-name">吴 优</div>
+      <ul class="header-bullets">
+        <!-- CS/CX版（车企）bullet -->
+        <!--
+        <li>热爱汽车文化，留英期间参与欧洲汽车文化、学习汽车设计</li>
+        <li>人机交互硕士，具备产品经理、AI Agent 开发及交互经验</li>
+        <li>多复合能力，熟悉C端产品流程，探索AI在出行体验的应用</li>
+        -->
+        <!-- PS版（互联网）bullet -->
+        <!--
+        <li>人机交互硕士，有产品经理、用户研究与交互经验</li>
+        <li>熟悉需求分析、人因工程与数据驱动的产品全流程</li>
+        <li>关注 AI 应用带来的增长机会，推动产品商业增长</li>
+        -->
+        <!-- 定制版 bullet（按JD替换）-->
+        <li>具备 AI Agent 完整落地经验，独立开发覆盖 6 条 C端业务线，深度理解自动化产品从 0 到 1 的全流程推进</li>
+        <li>人机交互硕士（英国约克大学），熟悉 C端产品需求定义、用户研究与可用性测试，具备跨职能协作经验</li>
+        <li>热爱新能源汽车，受训于前奥迪、理想、沃尔沃设计师，理解汽车 C端用户选配心理与品牌价值感知</li>
+      </ul>
+      <div class="header-info">
+        人机交互硕士（英国约克大学）<span>|</span>23岁<span>|</span>wyou561@163.com<span>|</span>17689790507
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 工作经历 ══ -->
+  <div class="section">
+    <div class="section-title">工作经历</div>
+
+    <!-- ── 猎豹移动 / EasyClaw ── -->
+    <div class="job">
+      <div class="job-header">
+        <div class="job-left">
+          <span class="job-company">猎豹移动集团 · EasyClaw 项目组</span>
+          <span class="job-title">AI产品经理</span>
+        </div>
+        <span class="job-period">2025.11 — 至今</span>
+      </div>
+      <div class="job-tag-row">
+        <span class="job-tag">AI Agent</span>
+        <span class="job-tag">C端产品全流程</span>
+        <span class="job-tag">自动化工作流</span>
+        <span class="job-tag">跨职能协作</span>
+        <span class="job-tag">用户增长</span>
+      </div>
+      <ul class="bullets">
+        <li><strong>AI Agent 核心能力建设：</strong>参与 EasyClaw 产品演进，重点负责 AI Agent 自动化工作流设计与能力抽象，推动产品从功能性向易用性升级</li>
+        <li><strong>自动化工作流探索与落地：</strong>设计并迭代多类用户任务自动化方案（自动化增长运营、跨平台操作），沉淀可复用 Workflow 模板；基于数据持续评估需求优先级，协同工程、运营、市场高效推进迭代</li>
+        <li><strong>星辰 AI Agent（独立交付）：</strong>独立完成 Agent 开发，覆盖 6 条业务线，为公司运营节省等效 6 名员工开销；强化 AI 主动服务与多任务处理能力，提升用户留存与使用频次</li>
+        <li><strong>龙虾社区：</strong>主导 AI Agent 使用与分享社区设计，促进用户沉淀自动化方案与使用场景，探索 UGC + AI Agent 结合模式，提升用户活跃与内容生态</li>
+        <li><strong>EasyClaw 分销平台：</strong>独立完成产品设计，支持 AI 工具商业化分发与用户增长，探索裂变、分销、用户转化增长路径</li>
+        <li><strong>用户行为分析与体验优化：</strong>基于用户使用数据优化 Agent 执行路径，提升任务完成率与体验流畅度</li>
+      </ul>
+      <div class="work-link">作品：星辰 AI Agent - xc.easyclaw.com ｜ 龙虾社区 - club.easyclaw.com</div>
+    </div>
+
+    <!-- ── 金山西山居 ── -->
+    <div class="job">
+      <div class="job-header">
+        <div class="job-left">
+          <span class="job-company">金山西山居</span>
+          <span class="job-title">UI/UX 设计实习生</span>
+        </div>
+        <span class="job-period">2025.9 — 2025.11</span>
+      </div>
+      <div class="job-tag-row">
+        <span class="job-tag">UI设计</span>
+        <span class="job-tag">交互设计</span>
+        <span class="job-tag">Unity</span>
+        <span class="job-tag">Figma</span>
+      </div>
+      <ul class="bullets">
+        <li><strong>UI 设计与视觉优化：</strong>使用 Unity、Figma、Photoshop 参与大型 MMORPG《剑侠世界 4》界面设计与视觉优化，负责约 20 个界面模块的 UI 资源交付</li>
+        <li><strong>交互与动效协作：</strong>与程序、策划团队紧密协作，参与 12 个核心系统的 UI 动效与交互细节设计，确保视觉一致性与操作流畅度</li>
+        <li><strong>界面结构优化：</strong>在版本迭代中提出信息层级与布局优化方案，核心功能页面交互清晰度与视觉统一性评分提升约 15%</li>
+      </ul>
+    </div>
+
+    <!-- ── 泰迪科技 ── -->
+    <div class="job">
+      <div class="job-header">
+        <div class="job-left">
+          <span class="job-company">泰迪科技</span>
+          <span class="job-title">数据分析实习生</span>
+        </div>
+        <span class="job-period">2023.5 — 2023.10</span>
+      </div>
+      <div class="job-tag-row">
+        <span class="job-tag">数据分析</span>
+        <span class="job-tag">SPSS</span>
+        <span class="job-tag">Python</span>
+        <span class="job-tag">用户行为</span>
+      </div>
+      <ul class="bullets">
+        <li><strong>数据清洗与分析：</strong>使用 SPSS、Python、Excel 等工具处理与分析 50万+ 条产品使用数据，挖掘用户行为模式与潜在需求</li>
+        <li><strong>数据驱动决策支持：</strong>定期向产品经理与开发团队汇报分析结果，推动 3 项核心功能的交互优化与产品迭代，提升用户任务完成率约 18%</li>
+        <li><strong>用户体验提升：</strong>协助产品经理基于数据优化界面布局与交互逻辑，整体用户满意度评分提升约 10%</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══ 教育经历 ══ -->
+  <div class="section">
+    <div class="section-title">教育经历</div>
+    <div class="edu-item">
+      <div class="edu-left">
+        <div class="edu-school">约克大学（英国）</div>
+        <div class="edu-degree">MSc Human-Centred Interactive Technologies</div>
+        <div class="edu-desc">英国综合排名 17，欧洲多地研学汽车文化，研究 AI 出行应用，实践产品开发项目</div>
+      </div>
+      <div class="edu-right">
+        <div class="edu-title">人机交互 硕士</div>
+        <div class="edu-period">2024.9 — 2026.1</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-left">
+        <div class="edu-school">广州大学华软软件学院</div>
+        <div class="edu-degree">软件工程 本科</div>
+        <div class="edu-desc">主导开发多个 AI 产品，四个广东省级奖项，创立三个大型学生组织</div>
+      </div>
+      <div class="edu-right">
+        <div class="edu-title">软件工程 本科</div>
+        <div class="edu-period">2020.9 — 2024.6</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 校园项目 ══ -->
+  <div class="section">
+    <div class="section-title">校园项目</div>
+
+    <!-- ── 图像智投（PS版含，CS/CX版不含）── -->
+    <div class="proj">
+      <div class="proj-header">
+        <span class="proj-name">图像智投 — AIGC 医疗影像教育</span>
+        <span class="proj-period">2022.4 — 2023.7</span>
+      </div>
+      <div class="proj-role-row">
+        <span class="proj-role">产品经理</span>
+        <span class="proj-role">UX 设计</span>
+        <span class="proj-role">AIGC</span>
+        <span class="proj-role">百度飞桨领航团</span>
+      </div>
+      <div class="proj-bg"><strong>背景：</strong>医学影像学习资源碎片化，医学生难以高效掌握诊断技能，需要提升学习效率与诊断思维能力</div>
+      <ul class="bullets">
+        <li><strong>需求与用户研究：</strong>深入调研医学生与临床导师，明确产品定位与核心功能（异常标注、交互式测试模块）</li>
+        <li><strong>交互与产品设计：</strong>设计学习界面与交互流程，结合图像处理算法影像标注与可视化分析，实现交互式教学</li>
+        <li><strong>产品验证与优化：</strong>制作产品原型并进行多轮测试优化，输出项目计划书与展示材料，主导竞赛路演</li>
+      </ul>
+      <div class="proj-result">成果：医学生平均任务完成速度提升 28%，用户留存率提升 19%，获第九届互联网+ 广东省铜奖</div>
+    </div>
+
+    <!-- ── CDS（CS/CX版含，PS版不含）── -->
+    <div class="proj">
+      <div class="proj-header">
+        <span class="proj-name">CDS 交通工具设计学院 · 车辆设计学员</span>
+        <span class="proj-period">2024.1 — 2024.2</span>
+      </div>
+      <div class="proj-role-row">
+        <span class="proj-role">车辆外观设计</span>
+        <span class="proj-role">内饰设计</span>
+        <span class="proj-role">工业设计</span>
+      </div>
+      <div class="proj-bg">课程由奥迪前设计师主讲，理想汽车设计师殷格、泛亚设计师李昂、沃尔沃 EX90 设计团队参与授课。设计一辆四门轿车，兼顾美学与功能性，需完成车辆外观及内饰设计。</div>
+      <ul class="bullets">
+        <li><strong>分析现有轿车外观：</strong>提炼设计趋势和用户偏好，确定设计方向，注重 Package 保证可行性</li>
+        <li><strong>提出创意设计概念：</strong>利用草图、PS 等工具展现车辆外形，注重线条流畅性和现代感</li>
+        <li><strong>多次设计迭代：</strong>每日 14 小时练习，优化细节，完成一辆四门轿车完整外观及内饰设计</li>
+      </ul>
+    </div>
+
+    <!-- ── 健康卫士 ── -->
+    <div class="proj">
+      <div class="proj-header">
+        <span class="proj-name">健康卫士 — AI 医疗导诊系统</span>
+        <span class="proj-period">2022.4 — 2023.7</span>
+      </div>
+      <div class="proj-role-row">
+        <span class="proj-role">产品经理</span>
+        <span class="proj-role">UX 设计</span>
+        <span class="proj-role">AI产品</span>
+        <span class="proj-role">0→1</span>
+      </div>
+      <div class="proj-bg"><strong>背景：</strong>受疫情影响，医院就医流程复杂，老人患者在科室选择、挂号问诊等环节面临挑战</div>
+      <ul class="bullets">
+        <li><strong>设计用户交互：</strong>设计对话式交互流程，结合人机交互原理，优化问诊路径，降低使用门槛，提升用户体验</li>
+        <li><strong>智能导诊流程策划：</strong>基于医疗知识图谱与决策树算法，构建导诊问卷逻辑，推荐精准度提高 85%</li>
+        <li><strong>产品方案呈现与优化：</strong>撰写商业计划书，设计高质量 PPT，主导项目路演，清晰传达产品价值</li>
+      </ul>
+      <div class="proj-result">成果：AI 推荐精准度提升 85%｜互联网+ 广东省铜奖｜三创赛广东省一等奖</div>
+    </div>
+
+    <!-- ── 约克游 ── -->
+    <div class="proj">
+      <div class="proj-header">
+        <span class="proj-name">约克游 — 城市探索类 App</span>
+        <span class="proj-period">2024.10 — 2024.12</span>
+      </div>
+      <div class="proj-role-row">
+        <span class="proj-role">用户研究</span>
+        <span class="proj-role">交互设计</span>
+        <span class="proj-role">游戏化设计</span>
+        <span class="proj-role">C端体验</span>
+      </div>
+      <div class="proj-bg"><strong>背景：</strong>为英国约克市政府开发探索型 App，鼓励游客游览本地小众商店</div>
+      <ul class="bullets">
+        <li><strong>构建用户问卷体系：</strong>调研用户，明确核心功能：地图导航、兴趣点推荐、活动提示</li>
+        <li><strong>引入游戏化机制：</strong>签到奖励、探索成就系统，设计以"任务驱动"和"探索成就"为核心的游戏化界面，基于 BJ Fogg 行为模型设计用户行动路径</li>
+        <li><strong>引入行为动机设计原则：</strong>提升用户在城市探索中的沉浸感</li>
+        <li><strong>组织并参与用户测试：</strong>两轮可用性测试，收集反馈进行迭代优化，确保应用易用且符合用户预期</li>
+      </ul>
+      <div class="proj-result">成果：用户体验评分提升 70%｜英国导师推荐进入约克市政府竞选路演</div>
+    </div>
+  </div>
+
+  <!-- ══ 主要奖项 ══ -->
+  <div class="section">
+    <div class="section-title">主要奖项</div>
+    <table class="awards-table">
+      <tr>
+        <td>健康卫士</td>
+        <td>第十三届全国大学生"创新、创意及创业"挑战赛</td>
+        <td><span class="award-level">广东省一等奖</span></td>
+        <td>2023.06</td>
+      </tr>
+      <tr>
+        <td>健康卫士</td>
+        <td>第八届中国国际"互联网+"大学生创新创业大赛高教主赛道</td>
+        <td><span class="award-level">广东省铜奖</span></td>
+        <td>2022.07</td>
+      </tr>
+      <tr>
+        <td>甜田农场</td>
+        <td>第十三届全国大学生"创新、创意及创业"挑战赛</td>
+        <td><span class="award-level">广东省二等奖</span></td>
+        <td>2023.06</td>
+      </tr>
+      <tr>
+        <td>图像智投</td>
+        <td>第九届中国国际"互联网+"大学生创新创业大赛产业赛道</td>
+        <td><span class="award-level">广东省铜奖</span></td>
+        <td>2023.07</td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+</body>
+</html>
