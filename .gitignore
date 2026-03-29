@@ -6,5 +6,5 @@ CLAUDE.md
 drafts/
 resumes/**/*.pdf
 resumes/**/[!i]*.html
-avatar*.jpg
+avatar-*.jpg
 *.pdf
