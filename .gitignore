@@ -1,4 +1,6 @@
 .vercel
+.wrangler
+.DS_Store
 secrets.md
 CLAUDE.md
 drafts/
