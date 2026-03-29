@@ -4,6 +4,7 @@
 secrets.md
 CLAUDE.md
 drafts/
-resumes/
+resumes/**/*.pdf
+resumes/**/[!i]*.html
 avatar*.jpg
 *.pdf
