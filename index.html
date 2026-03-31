@@ -746,15 +746,21 @@
     }
 
     @media (max-width: 900px) {
-      header, footer { padding: 32px; }
+      header {
+        padding: 32px;
+        background:
+          linear-gradient(180deg, rgba(245,240,234,0.97) 0%, rgba(245,240,234,0.9) 50%, rgba(245,240,234,0.75) 100%),
+          url('./hero-bg-new.png') center center / cover no-repeat;
+      }
+      footer { padding: 32px; }
       main { padding: 0 32px; }
+      .header-content { max-width: 100%; }
+      .nav-links a { display: none; }
       .about-grid, .skills-grid, .edu-grid { grid-template-columns: 1fr; }
       .exp-item { grid-template-columns: 1fr; gap: 16px; }
       .awards-grid { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 32px; align-items: flex-start; }
       .footer-name { font-size: 48px; }
-      header { background: var(--cream); }
-      .header-content { max-width: 100%; }
     }
   </style>
 </head>
@@ -821,7 +827,6 @@
 
     <section id="about">
       <div class="section-header reveal">
-        <span class="section-num">00</span>
         <h2 class="section-title" data-zh>关于我</h2>
         <h2 class="section-title" data-en>About</h2>
         <div class="section-line"></div>
@@ -838,7 +843,7 @@
             </div>
           </div>
           <div class="trait">
-            <div class="trait-icon">◈</div>
+            <div class="trait-icon">◇</div>
             <div class="trait-text">
               <strong data-zh>出行 × 设计</strong>
               <strong data-en>Mobility × Design</strong>
@@ -882,7 +887,6 @@
 
     <section id="experience">
       <div class="section-header reveal">
-        <span class="section-num">01</span>
         <h2 class="section-title" data-zh>工作 & 项目</h2>
         <h2 class="section-title" data-en>Experience</h2>
         <div class="section-line"></div>
@@ -1033,7 +1037,6 @@
 
     <section id="education">
       <div class="section-header reveal">
-        <span class="section-num">02</span>
         <h2 class="section-title" data-zh>教育背景</h2>
         <h2 class="section-title" data-en>Education</h2>
         <div class="section-line"></div>
@@ -1062,7 +1065,6 @@
 
     <section id="awards">
       <div class="section-header reveal">
-        <span class="section-num">03</span>
         <h2 class="section-title" data-zh>主要奖项</h2>
         <h2 class="section-title" data-en>Awards</h2>
         <div class="section-line"></div>
@@ -1109,7 +1111,6 @@
 
     <section id="skills">
       <div class="section-header reveal">
-        <span class="section-num">04</span>
         <h2 class="section-title" data-zh>技能</h2>
         <h2 class="section-title" data-en>Skills</h2>
         <div class="section-line"></div>
