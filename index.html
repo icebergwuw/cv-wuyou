@@ -746,15 +746,47 @@
     }
 
     @media (max-width: 900px) {
-      header, footer { padding: 32px; }
-      main { padding: 0 32px; }
+      header {
+        padding: 40px 24px;
+        min-height: 85vh;
+        background:
+          linear-gradient(180deg, var(--cream) 0%, rgba(245,240,234,0.92) 40%, rgba(245,240,234,0.85) 70%, transparent 100%),
+          url('./hero-bg-new.png') center center / cover no-repeat;
+      }
+      footer { padding: 40px 24px; }
+      main { padding: 0 24px; }
+      .header-content { max-width: 100%; }
+      .header-nav { margin-bottom: 60px; }
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 10px; }
+      .lang-switch { font-size: 10px; padding: 6px 14px; }
+      .header-name { font-size: clamp(48px, 10vw, 68px); }
+      .header-tagline { font-size: 14px; }
+      .header-info {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px 16px;
+      }
       .about-grid, .skills-grid, .edu-grid { grid-template-columns: 1fr; }
       .exp-item { grid-template-columns: 1fr; gap: 16px; }
+      .exp-item::before { left: -24px; }
       .awards-grid { grid-template-columns: 1fr; }
-      footer { flex-direction: column; gap: 32px; align-items: flex-start; }
+      section { padding: 60px 0; }
+      .section-title { font-size: 32px; }
+      footer { flex-direction: column; gap: 32px; align-items: center; text-align: center; }
       .footer-name { font-size: 48px; }
-      header { background: var(--cream); }
-      .header-content { max-width: 100%; }
+      .footer-contact { align-items: center; }
+    }
+
+    @media (max-width: 480px) {
+      header { padding: 32px 20px; }
+      main { padding: 0 20px; }
+      .header-name { font-size: clamp(36px, 12vw, 48px); }
+      .header-tagline { font-size: 13px; line-height: 1.8; }
+      .nav-links { gap: 12px; }
+      .nav-links a { font-size: 9px; }
+      section { padding: 48px 0; }
+      .section-title { font-size: 28px; }
     }
   </style>
 </head>
