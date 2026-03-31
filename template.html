@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>吴优 · AI产品经理</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <!-- SF font stack: no external fonts needed -->
   <style>
     :root {
       --lily: #7aabb0;
@@ -28,7 +28,7 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Noto Sans SC', 'PingFang SC', sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
       background: var(--paper);
       color: var(--ink);
       min-height: 100vh;
@@ -67,18 +67,18 @@
     .wrapper {
       position: relative;
       z-index: 1;
-      max-width: 860px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 48px 24px 80px;
+      padding: 48px 32px 80px;
     }
 
     /* ── HERO ── */
     .hero {
       display: flex;
       align-items: center;
-      gap: 32px;
-      padding: 36px 40px;
-      margin-bottom: 28px;
+      gap: 36px;
+      padding: 40px 48px;
+      margin-bottom: 24px;
       position: relative;
       overflow: hidden;
     }
@@ -99,8 +99,8 @@
     }
 
     .hero-avatar {
-      width: 90px;
-      height: 113px;
+      width: 82px;
+      height: 104px;
       object-fit: cover;
       border-radius: 12px;
       display: block;
@@ -120,22 +120,22 @@
     .hero-body { flex: 1; }
 
     .hero-name {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
       font-size: 52px;
-      font-weight: 300;
-      letter-spacing: 0.12em;
+      font-weight: 600;
+      letter-spacing: 0.04em;
       color: var(--ink);
       line-height: 1;
       margin-bottom: 6px;
     }
 
     .hero-role {
-      font-size: 12px;
-      font-weight: 400;
+      font-size: 11px;
+      font-weight: 500;
       color: var(--water-deep);
-      letter-spacing: 0.25em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .hero-tags {
@@ -156,11 +156,7 @@
     }
 
     .hero-contact {
-      font-size: 10.5px;
-      color: var(--ink-light);
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
+      font-size: 11.5px;
     }
 
     .hero-contact a {
@@ -170,8 +166,8 @@
 
     /* ── SECTION ── */
     .section {
-      padding: 28px 36px;
-      margin-bottom: 20px;
+      padding: 32px 44px;
+      margin-bottom: 16px;
     }
 
     .section-head {
@@ -182,11 +178,12 @@
     }
 
     .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
-      font-weight: 300;
+      font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
       color: var(--ink);
-      letter-spacing: 0.08em;
     }
 
     .section-line {
@@ -210,7 +207,7 @@
 
     .job-company {
       font-size: 14px;
-      font-weight: 700;
+      font-weight: 600;
       color: var(--ink);
     }
 
@@ -222,11 +219,10 @@
     }
 
     .job-period {
-      font-size: 10px;
+      font-size: 12px;
       color: var(--ink-light);
-      font-style: italic;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 13px;
+      font-weight: 400;
+      font-variant-numeric: tabular-nums;
     }
 
     .job-tags {
@@ -248,11 +244,11 @@
     .bullets { list-style: none; display: flex; flex-direction: column; gap: 5px; }
 
     .bullets li {
-      font-size: 11px;
+      font-size: 12px;
       color: var(--ink-light);
       padding-left: 16px;
       position: relative;
-      line-height: 1.7;
+      line-height: 1.75;
     }
 
     .bullets li::before {
@@ -280,12 +276,13 @@
     }
 
     .result-bar {
-      margin-top: 8px;
-      padding: 6px 14px;
+      margin-top: 10px;
+      padding: 8px 16px;
       background: linear-gradient(90deg, rgba(122,171,176,0.12), rgba(107,143,110,0.08));
       border-left: 2px solid var(--lily);
       border-radius: 0 8px 8px 0;
-      font-size: 10.5px;
+      font-size: 11px;
+      font-weight: 500;
       color: var(--ink);
     }
 
@@ -300,7 +297,7 @@
 
     .edu-school { font-size: 13px; font-weight: 700; color: var(--ink); }
     .edu-degree { font-size: 10.5px; color: var(--water-deep); margin-top: 2px; }
-    .edu-desc { font-size: 10px; color: var(--ink-light); margin-top: 3px; line-height: 1.6; }
+    .edu-desc { font-size: 11.5px; color: var(--ink-light); margin-top: 3px; line-height: 1.65; }
     .edu-right { text-align: right; flex-shrink: 0; }
     .edu-badge {
       font-size: 11px;
@@ -313,17 +310,17 @@
       display: inline-block;
       margin-bottom: 4px;
     }
-    .edu-period { font-size: 10px; color: var(--ink-light); font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 12px; }
+    .edu-period { font-size: 12px; color: var(--ink-light); font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif; }
 
     /* ── PROJECT ── */
     .proj { margin-bottom: 20px; }
     .proj:last-child { margin-bottom: 0; }
     .proj-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; flex-wrap: wrap; gap: 4px; }
     .proj-name { font-size: 13px; font-weight: 700; color: var(--ink); }
-    .proj-period { font-size: 12px; color: var(--ink-light); font-style: italic; font-family: 'Cormorant Garamond', serif; }
+    .proj-period { font-size: 12px; color: var(--ink-light); font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif; }
     .proj-roles { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 6px; }
     .proj-role { font-size: 9.5px; color: var(--petal-dark); background: rgba(232,196,184,0.2); border: 1px solid rgba(232,196,184,0.5); padding: 2px 9px; border-radius: 12px; }
-    .proj-bg { font-size: 10.5px; color: var(--ink-light); margin-bottom: 6px; line-height: 1.6; }
+    .proj-bg { font-size: 11.5px; color: var(--ink-light); margin-bottom: 6px; line-height: 1.65; }
     .proj-bg strong { color: var(--ink); font-weight: 600; }
 
     /* ── AWARDS ── */
@@ -339,7 +336,7 @@
     .award-proj { font-size: 11px; font-weight: 600; color: var(--ink); flex-shrink: 0; min-width: 60px; }
     .award-name { font-size: 10.5px; color: var(--ink-light); flex: 1; }
     .award-level { font-size: 10.5px; font-weight: 600; color: var(--water-deep); flex-shrink: 0; }
-    .award-year { font-size: 10px; color: var(--ink-light); flex-shrink: 0; font-family: 'Cormorant Garamond', serif; font-size: 12px; }
+    .award-year { font-size: 12px; color: var(--ink-light); flex-shrink: 0; font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif; }
 
     /* ── DIVIDER ── */
     .divider {
@@ -351,12 +348,9 @@
     /* ── FOOTER ── */
     .footer {
       text-align: center;
-      font-size: 10px;
+      font-size: 12px;
       color: rgba(74,94,85,0.45);
       margin-top: 40px;
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 13px;
       letter-spacing: 0.05em;
     }
 
@@ -379,7 +373,7 @@
   <!-- HERO -->
   <div class="hero glass fade-in">
     <div class="hero-avatar-wrap">
-      <img class="hero-avatar" src="../avatar.jpg" alt="吴优" />
+      <img class="hero-avatar" src="./avatar.jpg" alt="吴优" />
     </div>
     <div class="hero-body">
       <div class="hero-name">吴 优</div>
@@ -546,7 +540,7 @@
         <span class="proj-role">交互设计</span>
         <span class="proj-role">C端体验</span>
       </div>
-      <div class="proj-bg">为英国约克市政府开发探索型 App——在陌生场景中引导用户完成关键行为决策，与小鹏购车转化场景高度相似。</div>
+      <div class="proj-bg">为英国约克市政府开发探索型 App，鼓励游客游览本地小众商店，研究如何在陌生场景中引导用户完成关键行为决策。</div>
       <ul class="bullets">
         <li><strong>游戏化机制：</strong>基于 BJ Fogg 行为模型，引入签到奖励与探索成就系统</li>
         <li><strong>可用性测试：</strong>两轮迭代优化，用户体验评分提升 70%</li>
@@ -587,7 +581,7 @@
     </div>
   </div>
 
-  <div class="footer">为小鹏汽车 AI产品经理（C端）岗位定制 · wuyou.uk</div>
+  <div class="footer">wuyou.uk</div>
 
 </div>
 

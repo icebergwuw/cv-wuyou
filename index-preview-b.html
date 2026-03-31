@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>吴优</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #fffef9;
+      --sand: #f4ede4;
+      --clay: #c97a6a;
+      --clay-dark: #a85d4f;
+      --ink: #1a1a1a;
+      --ink-soft: #4a4a4a;
+      --ink-light: #8a8a8a;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Crimson Pro', serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.7;
+      font-size: 18px;
+      overflow-x: hidden;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10%;
+      position: relative;
+      background: linear-gradient(135deg, var(--cream) 0%, var(--sand) 100%);
+    }
+
+    .hero-content {
+      max-width: 900px;
+      text-align: center;
+    }
+
+    .hero-name {
+      font-size: clamp(80px, 15vw, 180px);
+      font-weight: 300;
+      line-height: 0.9;
+      margin-bottom: 48px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-tagline {
+      font-size: clamp(20px, 3vw, 32px);
+      font-weight: 300;
+      color: var(--ink-soft);
+      margin-bottom: 64px;
+      line-height: 1.6;
+    }
+
+    .hero-meta {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--ink-light);
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-meta a {
+      color: var(--clay);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+
+    .hero-meta a:hover {
+      border-bottom-color: var(--clay);
+    }
+
+    /* ── SECTION ── */
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 10%;
+      position: relative;
+    }
+
+    section:nth-child(even) {
+      background: var(--sand);
+    }
+
+    .section-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 32px;
+      font-weight: 500;
+    }
+
+    .section-title {
+      font-size: clamp(48px, 8vw, 80px);
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 48px;
+    }
+
+    .section-text {
+      font-size: 20px;
+      line-height: 1.9;
+      color: var(--ink-soft);
+      margin-bottom: 32px;
+    }
+
+    /* ── EXPERIENCE CARDS ── */
+    .exp-card {
+      margin-bottom: 64px;
+      padding-bottom: 64px;
+      border-bottom: 1px solid rgba(26,26,26,0.1);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .exp-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .exp-card:last-child {
+      border-bottom: none;
+    }
+
+    .exp-meta {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: var(--ink-light);
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .exp-role {
+      font-size: 32px;
+      font-weight: 400;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .exp-company {
+      font-size: 18px;
+      color: var(--clay-dark);
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+
+    .exp-desc {
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--ink-soft);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 80px 10%;
+      text-align: center;
+      background: var(--ink);
+      color: var(--cream);
+    }
+
+    .footer-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      opacity: 0.6;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero, section { padding: 8%; }
+      .hero-meta { flex-direction: column; gap: 16px; }
+      .exp-meta { flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-content">
+      <h1 class="hero-name">吴优</h1>
+      <p class="hero-tagline">
+        探索 AI 与出行的交叉地带
+      </p>
+      <div class="hero-meta">
+        <span>wyou561@163.com</span>
+        <span>176 8979 0507</span>
+        <a href="https://github.com/icebergwuw" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section>
+    <div class="section-inner">
+      <div class="section-label">About</div>
+      <h2 class="section-title">人机交互硕士</h2>
+      <p class="section-text">
+        毕业于英国约克大学，留英期间赴欧洲多地研学汽车文化，修习 CDS 交通工具设计学院课程。
+      </p>
+      <p class="section-text">
+        在猎豹移动集团参与 AI Agent 核心产品演进，独立开发「星辰 AI Agent」覆盖 6 条业务线。
+      </p>
+      <p class="section-text">
+        相信最好的产品，是让人感觉不到技术存在的那种。
+      </p>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section>
+    <div class="section-inner">
+      <div class="section-label">Experience</div>
+
+      <div class="exp-card">
+        <div class="exp-meta">
+          <span>猎豹移动集团</span>
+          <span>2025.11 — 至今</span>
+        </div>
+        <h3 class="exp-role">AI Agent 产品设计师</h3>
+        <div class="exp-company">EasyClaw 项目组</div>
+        <p class="exp-desc">
+          负责 AI Agent 核心能力建设与自动化工作流设计。独立开发「星辰 AI Agent」覆盖 6 条业务线，为公司节省等效 6 名员工运营成本。主导「龙虾社区」设计，促进用户沉淀自动化方案。
+        </p>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-meta">
+          <span>金山西山居</span>
+          <span>2025.9 — 2025.11</span>
+        </div>
+        <h3 class="exp-role">UI/UX 设计实习生</h3>
+        <p class="exp-desc">
+          参与大型 MMORPG《剑侠世界 4》界面设计与视觉优化，负责约 20 个界面模块的 UI 资源交付，核心功能页面交互清晰度评分提升约 15%。
+        </p>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-meta">
+          <span>泰迪科技</span>
+          <span>2023.5 — 2023.10</span>
+        </div>
+        <h3 class="exp-role">数据分析实习生</h3>
+        <p class="exp-desc">
+          处理分析 50 万+ 条产品使用数据，推动 3 项核心功能交互优化，用户任务完成率提升约 18%。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section>
+    <div class="section-inner">
+      <div class="section-label">Education</div>
+
+      <div class="exp-card">
+        <div class="exp-meta">
+          <span>约克大学（英国）</span>
+          <span>2024.9 — 2026.1</span>
+        </div>
+        <h3 class="exp-role">人机交互 硕士</h3>
+        <div class="exp-company">MSc Human-Centred Interactive Technologies</div>
+        <p class="exp-desc">
+          英国综合排名 17，欧洲多地研学汽车文化，研究 AI 出行应用，实践产品开发项目。
+        </p>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-meta">
+          <span>广州大学华软软件学院</span>
+          <span>2020.9 — 2024.6</span>
+        </div>
+        <h3 class="exp-role">软件工程 本科</h3>
+        <p class="exp-desc">
+          主导开发多个 AI 产品，四个广东省级奖项，创立三个大型学生组织。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="footer-text">© 2026 吴优</p>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.exp-card').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
