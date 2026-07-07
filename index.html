@@ -3,1240 +3,1090 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>吴优 — HCI · AI · Design</title>
+  <meta name="description" content="吴优，智能座舱产品经理。HCI 硕士，聚焦车载 AI Agent、地图 Agent、语音交互与 AI Native 产品落地。" />
+  <title>吴优 · 智能座舱产品经理</title>
+  <link rel="icon" href="data:," />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;500;600&family=Inter:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600&family=Noto+Sans+SC:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --lake: #7ba5b8;
-      --sand: #d4c4a8;
-      --olive: #8b9d7a;
-      --cream: #f5f0ea;
-      --ink: #2c3e35;
-      --ink-soft: #5a6e65;
-      --ink-light: #8a9e95;
+      --ink: #111413;
+      --panel: #f7f6f0;
+      --paper: #fffdf6;
+      --muted: #6b706b;
+      --line: rgba(17, 20, 19, 0.14);
+      --green: #2f7d58;
+      --red: #b94735;
+      --amber: #c29b42;
+      --glass: rgba(255, 253, 246, 0.76);
+      --shadow: 0 24px 70px rgba(17, 20, 19, 0.16);
+      --sans: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      --serif: "Crimson Pro", Georgia, serif;
     }
 
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
-      background: var(--cream);
+      margin: 0;
       color: var(--ink);
-      font-family: 'Inter', 'Noto Sans SC', sans-serif;
-      font-weight: 400;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-
-    [data-zh], [data-en] { display: none !important; }
-    body.lang-zh span[data-zh], body.lang-en span[data-en] { display: inline !important; }
-    body.lang-zh div[data-zh], body.lang-en div[data-en],
-    body.lang-zh p[data-zh], body.lang-en p[data-en],
-    body.lang-zh ul[data-zh], body.lang-en ul[data-en],
-    body.lang-zh h2[data-zh], body.lang-en h2[data-en] { display: block !important; }
-    body.lang-zh a[data-zh], body.lang-en a[data-en] { display: flex !important; }
-    body.lang-zh li[data-zh], body.lang-en li[data-en] { display: list-item !important; }
-
-    .lang-switch {
-      font-family: 'Inter', sans-serif;
-      font-size: 11px;
-      letter-spacing: 0.05em;
-      color: var(--ink);
-      background: rgba(255,255,255,0.7);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(139,157,122,0.3);
-      padding: 8px 18px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      border-radius: 20px;
-      font-weight: 500;
-    }
-    .lang-switch:hover {
-      background: rgba(255,255,255,0.95);
-      border-color: var(--olive);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(139,157,122,0.15);
-    }
-
-    header {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 48px 64px;
-      overflow: hidden;
       background:
-        linear-gradient(90deg, var(--cream) 0%, rgba(245,240,234,0.96) 30%, rgba(245,240,234,0.75) 55%, transparent 100%),
-        url('./hero-bg-new.png') right center / cover no-repeat;
+        linear-gradient(90deg, rgba(17, 20, 19, 0.035) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(17, 20, 19, 0.035) 1px, transparent 1px),
+        var(--paper);
+      background-size: 42px 42px;
+      font-family: var(--sans);
+      line-height: 1.7;
+      letter-spacing: 0;
     }
 
-    .header-content {
-      position: relative;
-      z-index: 2;
-      max-width: 580px;
-      animation: fadeInUp 1s ease;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .header-nav {
+    .nav {
+      position: fixed;
+      inset: 18px 24px auto;
+      z-index: 20;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      margin-bottom: 80px;
+      justify-content: space-between;
+      gap: 16px;
+      pointer-events: none;
     }
 
-    .nav-logo {
-      font-family: 'Inter', sans-serif;
-      font-size: 11px;
-      color: var(--ink-soft);
-      letter-spacing: 0.1em;
-      font-weight: 500;
+    .nav a,
+    .nav button {
+      pointer-events: auto;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--paper);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      mix-blend-mode: difference;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border: 1px solid currentColor;
+      border-radius: 50%;
+      font-size: 13px;
     }
 
     .nav-links {
       display: flex;
-      gap: 28px;
-      list-style: none;
       align-items: center;
+      gap: 6px;
+      padding: 6px;
+      border: 1px solid rgba(255, 253, 246, 0.34);
+      border-radius: 999px;
+      background: rgba(17, 20, 19, 0.34);
+      color: var(--paper);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 10px 38px rgba(17, 20, 19, 0.22);
     }
 
     .nav-links a {
-      font-family: 'Inter', sans-serif;
-      font-size: 11px;
-      letter-spacing: 0.05em;
-      color: var(--ink-soft);
-      text-decoration: none;
-      transition: color 0.3s ease, transform 0.2s ease;
-      font-weight: 500;
-    }
-    .nav-links a:hover {
-      color: var(--lake);
-      transform: translateY(-1px);
+      display: inline-flex;
+      min-height: 34px;
+      align-items: center;
+      border-radius: 999px;
+      padding: 0 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255, 253, 246, 0.84);
+      transition: background 180ms ease, color 180ms ease;
     }
 
-    .header-label {
-      font-family: 'Inter', sans-serif;
-      font-size: 10px;
-      letter-spacing: 0.15em;
-      color: var(--olive);
-      margin-bottom: 20px;
-      font-weight: 600;
+    .nav-links a:hover {
+      background: rgba(255, 253, 246, 0.15);
+      color: var(--paper);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 88vh;
+      display: grid;
+      align-items: end;
+      overflow: hidden;
+      color: var(--paper);
+      background: var(--ink);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(9, 11, 10, 0.82) 0%, rgba(9, 11, 10, 0.46) 46%, rgba(9, 11, 10, 0.18) 100%),
+        linear-gradient(180deg, rgba(9, 11, 10, 0.14) 0%, rgba(9, 11, 10, 0.6) 100%),
+        url("./hero-bg-new.png") center center / cover no-repeat;
+      transform: scale(1.02);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 253, 246, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 253, 246, 0.05) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85), transparent 88%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 144px 0 42px;
+    }
+
+    .eyebrow {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      color: rgba(255, 253, 246, 0.82);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
     }
 
-    .header-name {
-      font-family: 'Crimson Pro', serif;
-      font-size: clamp(68px, 11vw, 130px);
-      font-weight: 400;
+    .eyebrow::before {
+      content: "";
+      width: 42px;
+      height: 2px;
+      background: var(--green);
+    }
+
+    h1 {
+      max-width: 860px;
+      margin: 0;
+      font-size: 76px;
       line-height: 0.95;
-      letter-spacing: 0.01em;
-      color: var(--ink);
-      margin-bottom: 28px;
+      font-weight: 800;
+      letter-spacing: 0;
     }
 
-    .header-name span {
+    .hero-title-en {
       display: block;
-      color: var(--lake);
+      margin-top: 16px;
+      font-family: var(--serif);
+      font-size: 42px;
       font-weight: 500;
+      color: rgba(255, 253, 246, 0.72);
     }
 
-    .header-tagline {
-      font-size: 15px;
+    .hero-copy {
+      max-width: 680px;
+      margin: 28px 0 0;
+      color: rgba(255, 253, 246, 0.82);
+      font-size: 18px;
+      line-height: 1.85;
       font-weight: 400;
-      color: var(--ink-soft);
-      max-width: 480px;
-      line-height: 1.9;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 46px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 999px;
+      padding: 0 20px;
+      font-weight: 700;
+      font-size: 14px;
+      border: 1px solid rgba(255, 253, 246, 0.28);
+      background: rgba(255, 253, 246, 0.12);
+      color: var(--paper);
+      backdrop-filter: blur(12px);
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    .button.primary {
+      border-color: rgba(47, 125, 88, 0.78);
+      background: var(--green);
+      color: var(--paper);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 253, 246, 0.2);
+    }
+
+    .button.primary:hover {
+      background: #368e65;
+    }
+
+    .hero-proof {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      margin-top: 70px;
+      border: 1px solid rgba(255, 253, 246, 0.2);
+      background: rgba(255, 253, 246, 0.16);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.26);
+      backdrop-filter: blur(16px);
+    }
+
+    .proof-item {
+      min-height: 122px;
+      padding: 22px;
+      background: rgba(17, 20, 19, 0.38);
+    }
+
+    .proof-label {
+      color: rgba(255, 253, 246, 0.58);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .proof-text {
+      margin-top: 10px;
+      color: var(--paper);
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.55;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+    }
+
+    .section {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 96px 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(280px, 1.25fr);
+      gap: 64px;
+      align-items: start;
       margin-bottom: 44px;
     }
 
-    .header-info {
-      display: flex;
-      gap: 32px;
-      flex-wrap: wrap;
-    }
-
-    .info-item {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      transition: transform 0.2s ease;
-    }
-
-    .info-item:hover {
-      transform: translateY(-2px);
-    }
-
-    .info-label {
-      font-family: 'Inter', sans-serif;
-      font-size: 9px;
-      letter-spacing: 0.1em;
-      color: var(--ink-light);
+    .kicker {
+      margin: 0 0 14px;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      font-weight: 600;
     }
 
-    .info-value {
-      font-size: 13px;
-      color: var(--ink);
-      font-weight: 500;
+    h2 {
+      margin: 0;
+      max-width: 620px;
+      font-size: 42px;
+      line-height: 1.12;
+      letter-spacing: 0;
     }
 
-    .info-value a {
-      color: var(--ink);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    .info-value a:hover { color: var(--lake); }
-
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 64px;
+    .section-intro {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.95;
     }
 
-    section {
-      padding: 80px 0;
-      border-bottom: 1px solid rgba(139,157,122,0.2);
-    }
-
-    .section-header {
-      display: flex;
-      align-items: baseline;
-      gap: 20px;
-      margin-bottom: 56px;
-    }
-
-    .section-num {
-      font-family: 'Inter', sans-serif;
-      font-size: 10px;
-      color: var(--olive);
-      letter-spacing: 0.1em;
-      font-weight: 600;
-    }
-
-    .section-title {
-      font-family: 'Crimson Pro', serif;
-      font-size: 40px;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      color: var(--ink);
-      line-height: 1;
-    }
-
-    .section-line {
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(90deg, rgba(139,157,122,0.3), transparent);
-    }
-
-    .about-grid {
+    .cockpit-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 18px;
+      align-items: stretch;
     }
 
-    .trait {
+    .feature-panel {
+      border: 1px solid var(--line);
+      background: var(--glass);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .feature-panel.major {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      min-height: 560px;
+      background:
+        linear-gradient(140deg, rgba(47, 125, 88, 0.12), transparent 44%),
+        var(--glass);
+    }
+
+    .panel-top {
       display: flex;
       align-items: center;
-      gap: 20px;
-      padding: 20px 0;
-      border-bottom: 1px solid rgba(139,157,122,0.12);
-      transition: all 0.3s ease;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 28px 30px;
+      border-bottom: 1px solid var(--line);
     }
 
-    .trait:hover {
-      padding-left: 12px;
-      background: rgba(139,157,122,0.03);
+    .panel-title {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.3;
     }
 
-    .trait-icon {
-      width: 36px;
-      height: 36px;
-      border: 1px solid rgba(139,157,122,0.25);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      flex-shrink: 0;
-      transition: all 0.3s ease;
-      border-radius: 6px;
-    }
-
-    .trait:hover .trait-icon {
-      border-color: var(--olive);
-      background: rgba(139,157,122,0.12);
-      transform: scale(1.05);
-    }
-
-    .trait-text {
+    .panel-meta {
+      color: var(--muted);
       font-size: 13px;
-      color: var(--ink-soft);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .panel-body {
+      padding: 30px;
+    }
+
+    .focus-list {
+      display: grid;
+      gap: 18px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .focus-list li {
+      position: relative;
+      padding-left: 24px;
+    }
+
+    .focus-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.82em;
+      width: 9px;
+      height: 9px;
+      border: 2px solid var(--green);
+      border-radius: 50%;
+    }
+
+    .focus-list strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 17px;
+      color: var(--ink);
+    }
+
+    .focus-list span {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.78;
+    }
+
+    .side-stack {
+      display: grid;
+      gap: 18px;
+    }
+
+    .metric-card {
+      padding: 28px;
+      border: 1px solid var(--line);
+      background: var(--ink);
+      color: var(--paper);
+      min-height: 172px;
+      display: grid;
+      align-content: space-between;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .metric-card::after {
+      content: "";
+      position: absolute;
+      right: -42px;
+      bottom: -42px;
+      width: 150px;
+      height: 150px;
+      border: 1px solid rgba(255, 253, 246, 0.18);
+      transform: rotate(18deg);
+    }
+
+    .metric-value {
+      font-family: var(--serif);
+      font-size: 52px;
+      line-height: 0.95;
+      color: var(--amber);
+    }
+
+    .metric-note {
+      margin: 14px 0 0;
+      color: rgba(255, 253, 246, 0.72);
+      font-size: 15px;
       line-height: 1.7;
     }
 
-    .trait-text strong {
-      color: var(--ink);
-      font-weight: 600;
-      display: block;
-      font-size: 14px;
-      font-family: 'Crimson Pro', serif;
-    }
-
-    .about-bio {
-      font-size: 14px;
-      line-height: 2;
-      color: var(--ink-soft);
-    }
-
-    .about-bio p + p {
-      margin-top: 20px;
-    }
-
-    .about-bio strong {
-      color: var(--lake);
-      font-weight: 600;
-    }
-
-    .exp-item {
+    .rail {
       display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 40px;
-      padding: 40px 0;
-      border-bottom: 1px solid rgba(139,157,122,0.12);
-      position: relative;
-      transition: all 0.3s ease;
+      gap: 1px;
+      border: 1px solid var(--line);
+      background: var(--line);
     }
 
-    .exp-item::before {
-      content: '';
-      position: absolute;
-      left: -64px;
-      top: 0;
-      width: 2px;
-      height: 0;
-      background: linear-gradient(180deg, var(--lake), var(--olive));
-      transition: height 0.6s ease;
+    .rail-item {
+      display: grid;
+      grid-template-columns: 190px minmax(0, 1fr);
+      gap: 22px;
+      padding: 28px;
+      background: rgba(255, 253, 246, 0.88);
     }
 
-    .exp-item:hover::before {
-      height: 100%;
+    .rail-date {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
 
-    .exp-item:hover {
-      background: rgba(139,157,122,0.02);
+    .rail-title {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.35;
     }
 
-    .exp-period {
-      font-family: 'Inter', sans-serif;
-      font-size: 11px;
-      color: var(--olive);
-      letter-spacing: 0.05em;
-      margin-bottom: 8px;
-      font-weight: 600;
+    .rail-desc {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.82;
     }
 
-    .exp-company {
-      font-size: 12px;
-      color: var(--ink-soft);
-      line-height: 1.6;
-    }
-
-    .exp-tags {
+    .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 12px;
+      gap: 8px;
+      margin-top: 16px;
     }
 
     .tag {
-      font-family: 'Inter', sans-serif;
-      font-size: 9px;
-      letter-spacing: 0.05em;
-      padding: 4px 10px;
-      border: 1px solid rgba(139,157,122,0.3);
-      color: var(--ink-soft);
-      transition: all 0.3s ease;
-      border-radius: 12px;
-      font-weight: 500;
-    }
-
-    .tag:hover {
-      border-color: var(--lake);
-      color: var(--lake);
-      background: rgba(123,165,184,0.08);
-      transform: translateY(-1px);
-    }
-
-    .exp-title {
-      font-family: 'Crimson Pro', serif;
-      font-size: 26px;
-      font-weight: 500;
-      letter-spacing: 0.01em;
-      color: var(--ink);
-      line-height: 1.2;
-      margin-bottom: 14px;
-    }
-
-    .exp-desc {
-      font-size: 13px;
-      color: var(--ink-soft);
-      line-height: 1.9;
-      margin-bottom: 16px;
-    }
-
-    .exp-bullets {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .exp-bullets li {
-      font-size: 13px;
-      color: var(--ink-soft);
-      padding-left: 20px;
-      position: relative;
-      line-height: 1.8;
-      transition: color 0.2s ease;
-    }
-
-    .exp-bullets li:hover {
-      color: var(--ink);
-    }
-
-    .exp-bullets li::before {
-      content: '';
-      position: absolute;
-      left: 4px;
-      top: 10px;
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: var(--olive);
-      transition: all 0.3s ease;
-    }
-
-    .exp-bullets li:hover::before {
-      background: var(--lake);
-      transform: scale(1.3);
-    }
-
-    .exp-result {
-      margin-top: 16px;
-      padding: 12px 16px;
-      border-left: 2px solid var(--lake);
-      background: rgba(123,165,184,0.08);
-      font-size: 12px;
-      color: var(--ink);
-      font-family: 'Inter', sans-serif;
-      border-radius: 0 6px 6px 0;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-
-    .exp-result:hover {
-      background: rgba(123,165,184,0.12);
-      transform: translateX(4px);
-    }
-
-    .exp-links {
-      display: flex;
-      gap: 16px;
-      margin-top: 16px;
-    }
-
-    .exp-link {
-      font-family: 'Inter', sans-serif;
-      font-size: 11px;
-      letter-spacing: 0.03em;
-      color: var(--lake);
-      text-decoration: none;
-      display: flex;
+      display: inline-flex;
+      min-height: 30px;
       align-items: center;
-      gap: 6px;
-      transition: all 0.3s ease;
-      font-weight: 500;
-    }
-
-    .exp-link:hover {
-      gap: 10px;
-      color: var(--olive);
-    }
-
-    .exp-link::after {
-      content: '→';
-      transition: transform 0.3s ease;
-    }
-
-    .exp-link:hover::after {
-      transform: translateX(2px);
-    }
-
-    .awards-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-
-    .award-card {
-      background: rgba(255,255,255,0.4);
-      backdrop-filter: blur(8px);
-      padding: 32px;
-      border: 1px solid rgba(139,157,122,0.2);
-      border-radius: 8px;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .award-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--lake);
-      transition: width 0.4s ease;
-    }
-
-    .award-card:hover {
-      background: rgba(255,255,255,0.6);
-      border-color: var(--olive);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(139,157,122,0.12);
-    }
-
-    .award-card:hover::before {
-      width: 100%;
-    }
-
-    .award-year {
-      font-family: 'Crimson Pro', serif;
-      font-size: 42px;
-      color: var(--ink-light);
-      line-height: 1;
-      margin-bottom: 12px;
-      font-weight: 300;
-    }
-
-    .award-name {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--ink);
-      margin-bottom: 6px;
-    }
-
-    .award-level {
-      font-family: 'Inter', sans-serif;
-      font-size: 11px;
-      letter-spacing: 0.05em;
-      color: var(--lake);
-      font-weight: 600;
-    }
-
-    .award-org {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0 11px;
+      color: var(--muted);
       font-size: 12px;
-      color: var(--ink-soft);
-      margin-top: 8px;
-      line-height: 1.6;
+      font-weight: 700;
+      background: rgba(255, 253, 246, 0.7);
+    }
+
+    .deep-band {
+      background: var(--ink);
+      color: var(--paper);
+      margin-top: 44px;
+    }
+
+    .deep-band .section {
+      padding: 90px 0;
+    }
+
+    .deep-band .kicker {
+      color: var(--amber);
+    }
+
+    .deep-band .section-intro {
+      color: rgba(255, 253, 246, 0.68);
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      border: 1px solid rgba(255, 253, 246, 0.18);
+      background: rgba(255, 253, 246, 0.18);
+    }
+
+    .case {
+      min-height: 330px;
+      padding: 28px;
+      background: rgba(255, 253, 246, 0.055);
+      display: grid;
+      align-content: space-between;
+      gap: 28px;
+    }
+
+    .case-number {
+      color: var(--amber);
+      font-family: var(--serif);
+      font-size: 38px;
+      line-height: 1;
+    }
+
+    .case h3 {
+      margin: 0 0 12px;
+      font-size: 23px;
+      line-height: 1.35;
+    }
+
+    .case p {
+      margin: 0;
+      color: rgba(255, 253, 246, 0.72);
+      font-size: 15px;
+      line-height: 1.84;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+      gap: 44px;
+      align-items: start;
+    }
+
+    .portrait-block {
+      position: sticky;
+      top: 98px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .portrait {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      filter: grayscale(8%);
+    }
+
+    .contact-panel {
+      padding: 24px;
+      border: 1px solid var(--line);
+      background: rgba(255, 253, 246, 0.82);
+    }
+
+    .contact-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .contact-line:last-child {
+      border-bottom: 0;
+    }
+
+    .contact-line strong {
+      color: var(--ink);
+    }
+
+    .education-panel {
+      display: grid;
+      gap: 18px;
+    }
+
+    .text-panel {
+      padding: 30px;
+      border: 1px solid var(--line);
+      background: rgba(255, 253, 246, 0.88);
+    }
+
+    .text-panel h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      line-height: 1.35;
+    }
+
+    .text-panel p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.84;
+    }
+
+    .award-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      border-top: 1px solid var(--line);
+    }
+
+    .award-list li {
+      display: grid;
+      grid-template-columns: 90px minmax(0, 1fr);
+      gap: 18px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .award-list strong {
+      color: var(--red);
+      font-size: 13px;
+      letter-spacing: 0.08em;
     }
 
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      border: 1px solid var(--line);
+      background: var(--line);
     }
 
-    .skill-group-title {
-      font-family: 'Inter', sans-serif;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      color: var(--olive);
-      margin-bottom: 20px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid rgba(139,157,122,0.3);
-      font-weight: 600;
-      text-transform: uppercase;
+    .skill-cell {
+      min-height: 176px;
+      padding: 24px;
+      background: rgba(255, 253, 246, 0.9);
     }
 
-    .skill-item {
+    .skill-cell h3 {
+      margin: 0 0 12px;
+      font-size: 18px;
+    }
+
+    .skill-cell p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.78;
+    }
+
+    .footer {
+      padding: 72px 24px;
+      background: #0c0f0e;
+      color: var(--paper);
+      text-align: center;
+    }
+
+    .footer h2 {
+      max-width: none;
+      font-size: 36px;
+    }
+
+    .footer p {
+      margin: 16px auto 0;
+      max-width: 680px;
+      color: rgba(255, 253, 246, 0.68);
+      font-size: 15px;
+    }
+
+    .footer-links {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(139,157,122,0.08);
-      transition: all 0.2s ease;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
     }
 
-    .skill-item:hover {
-      padding-left: 4px;
-    }
-
-    .skill-name {
-      font-size: 13px;
-      color: var(--ink-soft);
-    }
-
-    .skill-bar {
-      display: flex;
-      gap: 3px;
-    }
-
-    .skill-dot {
-      width: 6px;
-      height: 6px;
-      border: 1px solid rgba(139,157,122,0.3);
-      transition: all 0.3s ease;
-      border-radius: 50%;
-    }
-
-    .skill-dot.filled {
-      background: var(--lake);
-      border-color: var(--lake);
-    }
-
-    .skill-item:hover .skill-dot.filled {
-      background: var(--olive);
-      border-color: var(--olive);
-      transform: scale(1.2);
-    }
-
-    .edu-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-
-    .edu-card {
-      background: rgba(255,255,255,0.4);
-      backdrop-filter: blur(8px);
-      padding: 40px;
-      border: 1px solid rgba(139,157,122,0.2);
-      border-radius: 8px;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    .edu-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 80px;
-      height: 80px;
-      border-top: 1px solid rgba(139,157,122,0.2);
-      border-left: 1px solid rgba(139,157,122,0.2);
-      transition: all 0.4s ease;
-    }
-
-    .edu-card:hover {
-      background: rgba(255,255,255,0.6);
-      border-color: var(--olive);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(139,157,122,0.12);
-    }
-
-    .edu-card:hover::after {
-      width: 120px;
-      height: 120px;
-      border-color: var(--lake);
-    }
-
-    .edu-period {
-      font-family: 'Inter', sans-serif;
-      font-size: 11px;
-      letter-spacing: 0.05em;
-      color: var(--olive);
-      margin-bottom: 16px;
-      font-weight: 600;
-    }
-
-    .edu-school {
-      font-family: 'Crimson Pro', serif;
-      font-size: 32px;
-      font-weight: 500;
-      letter-spacing: 0.01em;
-      color: var(--ink);
-      line-height: 1.1;
-      margin-bottom: 8px;
-    }
-
-    .edu-degree {
-      font-size: 13px;
-      color: var(--ink-soft);
-      margin-bottom: 16px;
-    }
-
-    .edu-note {
-      font-size: 12px;
-      color: var(--ink-light);
-      line-height: 1.8;
-    }
-
-    footer {
-      padding: 64px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .footer-name {
-      font-family: 'Crimson Pro', serif;
-      font-size: 72px;
-      color: var(--ink-light);
-      letter-spacing: 0.02em;
-      line-height: 1;
-      transition: all 0.3s ease;
-      font-weight: 300;
-    }
-
-    .footer-name:hover {
-      color: var(--lake);
-      transform: translateX(4px);
-    }
-
-    .footer-contact {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 8px;
-    }
-
-    .contact-link {
-      font-family: 'Inter', sans-serif;
-      font-size: 12px;
-      letter-spacing: 0.05em;
-      color: var(--ink-soft);
-      text-decoration: none;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 500;
-    }
-
-    .contact-link:hover {
-      color: var(--lake);
-      transform: translateX(-4px);
-    }
-
-    .contact-link span {
-      color: var(--ink-light);
-      font-size: 10px;
-      font-weight: 600;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 900px) {
-      header {
-        padding: 32px;
-        background:
-          linear-gradient(180deg, rgba(245,240,234,0.97) 0%, rgba(245,240,234,0.9) 50%, rgba(245,240,234,0.75) 100%),
-          url('./hero-bg-new.png') center center / cover no-repeat;
+    @media (max-width: 960px) {
+      .nav {
+        inset: 14px 16px auto;
       }
-      footer { padding: 32px; }
-      main { padding: 0 32px; }
-      .header-content { max-width: 100%; }
-      .nav-links a { display: none; }
-      .about-grid, .skills-grid, .edu-grid { grid-template-columns: 1fr; }
-      .exp-item { grid-template-columns: 1fr; gap: 16px; }
-      .awards-grid { grid-template-columns: 1fr; }
-      footer { flex-direction: column; gap: 32px; align-items: flex-start; }
-      .footer-name { font-size: 48px; }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-inner,
+      .section {
+        width: min(100% - 32px, 720px);
+      }
+
+      h1 {
+        font-size: 52px;
+      }
+
+      .hero-title-en {
+        font-size: 30px;
+      }
+
+      .hero-copy {
+        font-size: 16px;
+      }
+
+      .hero-proof,
+      .cockpit-grid,
+      .section-head,
+      .case-grid,
+      .two-col,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .proof-item {
+        min-height: auto;
+      }
+
+      .rail-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .portrait-block {
+        position: static;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero {
+        min-height: 86vh;
+      }
+
+      .hero-inner {
+        padding-top: 120px;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      h2 {
+        font-size: 30px;
+      }
+
+      .section {
+        padding: 70px 0;
+      }
+
+      .panel-top,
+      .panel-body,
+      .rail-item,
+      .case,
+      .text-panel,
+      .skill-cell {
+        padding: 22px;
+      }
+
+      .panel-top {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .panel-meta {
+        white-space: normal;
+      }
+
+      .metric-value {
+        font-size: 42px;
+      }
+
+      .award-list li {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
     }
   </style>
 </head>
-<body class="lang-zh">
+<body>
+  <nav class="nav" aria-label="主导航">
+    <a class="brand" href="#top" aria-label="回到顶部">
+      <span class="brand-mark">WY</span>
+      <span>Wu You</span>
+    </a>
+    <div class="nav-links">
+      <a href="#cockpit">座舱 AI</a>
+      <a href="#experience">经历</a>
+      <a href="#projects">项目</a>
+      <a href="#profile">联系</a>
+    </div>
+  </nav>
 
-  <header>
-    <div class="header-content">
-      <nav class="header-nav">
-        <div class="nav-logo">WU YOU · CV · 2026</div>
-        <ul class="nav-links">
-          <li data-zh><a href="#experience">经历</a></li>
-          <li data-zh><a href="#education">教育</a></li>
-          <li data-zh><a href="#awards">奖项</a></li>
-          <li data-zh><a href="#skills">技能</a></li>
-          <li data-en><a href="#experience">Experience</a></li>
-          <li data-en><a href="#education">Education</a></li>
-          <li data-en><a href="#awards">Awards</a></li>
-          <li data-en><a href="#skills">Skills</a></li>
-          <li><button class="lang-switch" id="langBtn">EN</button></li>
-        </ul>
-      </nav>
-
-      <div class="header-label">HCI · AI Agent · Product Design</div>
-      <h1 class="header-name">WU<span>YOU</span></h1>
-      <p class="header-tagline" data-zh>
-        人机交互硕士，探索<strong style="color:var(--lake)">AI 与出行</strong>的交叉地带。<br/>
-        从医疗导诊到城市探索，从汽车设计到 Agent 开发——<br/>
-        在技术与体验之间寻找那条<strong style="color:var(--olive)">最好的线</strong>。
+  <header id="top" class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">C75 · Automotive Product Direction</p>
+      <h1>
+        吴优
+        <span class="hero-title-en">Intelligent Cockpit Product Manager</span>
+      </h1>
+      <p class="hero-copy">
+        镁佳科技智能座舱产品经理，参与长安深蓝座舱 AI 交互方向；英国 HCI 硕士，具备语音、地图 Agent 与 AI Native 产品落地经验。
       </p>
-      <p class="header-tagline" data-en>
-        MSc in Human-Centred Interactive Technologies, exploring the intersection of <strong style="color:var(--lake)">AI and mobility</strong>.<br/>
-        From medical triage to urban exploration, from automotive design to Agent development —<br/>
-        finding <strong style="color:var(--olive)">the line</strong> between technology and experience.
-      </p>
-
-      <div class="header-info">
-        <div class="info-item">
-          <span class="info-label" data-zh>邮箱</span>
-          <span class="info-label" data-en>Email</span>
-          <span class="info-value"><a href="mailto:wyou561@163.com">wyou561@163.com</a></span>
+      <div class="hero-actions">
+        <a class="button primary" href="mailto:wyou561@163.com">联系邮箱</a>
+        <a class="button" href="https://github.com/icebergwuw" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="button" href="#cockpit">查看座舱 AI 经历</a>
+      </div>
+      <div class="hero-proof" aria-label="核心定位">
+        <div class="proof-item">
+          <div class="proof-label">Current Role</div>
+          <div class="proof-text">镁佳智能座舱 PM，参与长安深蓝座舱 AI 交互</div>
         </div>
-        <div class="info-item">
-          <span class="info-label" data-zh>电话</span>
-          <span class="info-label" data-en>Phone</span>
-          <span class="info-value" data-zh>176 8979 0507</span>
-          <span class="info-value" data-en>+86 176 8979 0507</span>
+        <div class="proof-item">
+          <div class="proof-label">HCI Foundation</div>
+          <div class="proof-text">英国约克大学人机交互硕士，专攻 AI 出行方向</div>
         </div>
-        <div class="info-item">
-          <span class="info-label" data-zh>学历</span>
-          <span class="info-label" data-en>Education</span>
-          <span class="info-value" data-zh>MSc HCI · 约克大学</span>
-          <span class="info-value" data-en>MSc HCI · University of York</span>
-        </div>
-        <div class="info-item">
-          <span class="info-label" data-zh>年龄</span>
-          <span class="info-label" data-en>Age</span>
-          <span class="info-value">23</span>
+        <div class="proof-item">
+          <div class="proof-label">AI Native</div>
+          <div class="proof-text">可独立落地交互 Demo，理解 Agent 工作流与用户体验闭环</div>
         </div>
       </div>
     </div>
   </header>
 
   <main>
-
-    <section id="about">
-      <div class="section-header reveal">
-        <h2 class="section-title" data-zh>关于我</h2>
-        <h2 class="section-title" data-en>About</h2>
-        <div class="section-line"></div>
-      </div>
-      <div class="about-grid">
-        <div class="about-traits reveal">
-          <div class="trait">
-            <div class="trait-icon">⬡</div>
-            <div class="trait-text">
-              <strong data-zh>HCI × AI Agent</strong>
-              <strong data-en>HCI × AI Agent</strong>
-              <span data-zh>人机交互硕士，专注 AI 自动化工作流设计与用户体验</span>
-              <span data-en>MSc in Human-Centred Interactive Technologies, focused on AI automation workflow design and user experience</span>
-            </div>
-          </div>
-          <div class="trait">
-            <div class="trait-icon">◇</div>
-            <div class="trait-text">
-              <strong data-zh>出行 × 设计</strong>
-              <strong data-en>Mobility × Design</strong>
-              <span data-zh>热爱汽车文化，修习车辆外观/内饰设计，探索 AI 在出行场景的应用</span>
-              <span data-en>Passionate about automotive culture; trained in vehicle exterior and interior design; exploring AI applications in mobility</span>
-            </div>
-          </div>
-          <div class="trait">
-            <div class="trait-icon">△</div>
-            <div class="trait-text">
-              <strong data-zh>产品 × 落地</strong>
-              <strong data-en>Product × Execution</strong>
-              <span data-zh>独立开发 AI Agent，为公司节省 6 名员工开销，具备完整 0→1 产品经验</span>
-              <span data-en>Independently developed an AI Agent saving the equivalent of 6 FTEs; end-to-end 0→1 product experience</span>
-            </div>
-          </div>
-          <div class="trait">
-            <div class="trait-icon">◎</div>
-            <div class="trait-text">
-              <strong data-zh>研究 × 实践</strong>
-              <strong data-en>Research × Practice</strong>
-              <span data-zh>多次用户研究、可用性测试，英国导师推荐至政府竞选</span>
-              <span data-en>Multiple rounds of user research and usability testing; project recommended by UK supervisor for government pitch</span>
-            </div>
-          </div>
+    <section id="cockpit" class="section">
+      <div class="section-head">
+        <div>
+          <p class="kicker">Cockpit AI</p>
+          <h2>把车内 AI 从“能力列表”拆成可落地的交互链路。</h2>
         </div>
-        <div class="about-bio reveal">
-          <div data-zh>
-            <p>毕业于<strong>英国约克大学</strong>人机交互（MSc HCIT），留英期间赴欧洲多地研学汽车文化，修习 CDS 交通工具设计学院课程，接触奥迪、理想、沃尔沃等设计师的一线思维。</p>
-            <p>在 <strong>猎豹移动集团（EasyClaw）</strong>参与 AI Agent 核心产品演进，独立开发「星辰 AI Agent」覆盖 6 条业务线；设计「龙虾社区」促进用户沉淀自动化方案。</p>
-            <p>本科阶段创立三个大型组织，主导<strong>四个广东省级竞赛奖项</strong>。相信最好的产品，是让人感觉不到技术存在的那种。</p>
+        <p class="section-intro">
+          C75 的核心变化是从泛 AI 产品叙事转向车企智能座舱。当前经历聚焦长安深蓝座舱 AI 方向，覆盖 MegaClaw、地图 Agent 与语音体验优化，强调场景拆解、功能边界、任务流和验收口径。
+        </p>
+      </div>
+
+      <div class="cockpit-grid">
+        <article class="feature-panel major">
+          <div class="panel-top">
+            <h3 class="panel-title">镁佳科技 · 智能座舱产品经理</h3>
+            <div class="panel-meta">2026.06 - 至今</div>
           </div>
-          <div data-en>
-            <p>Pursuing an <strong>MSc in Human-Centred Interactive Technologies</strong> at the University of York (ranked 17th in the UK). Travelled across Europe exploring automotive culture and completed a vehicle design programme at CDS — studying under former Audi, Li Auto, and Volvo designers.</p>
-            <p>At <strong>Cheetah Mobile Group (EasyClaw)</strong>, led core AI Agent product development, independently delivering "Xingchen AI Agent" across 6 business lines; designed "Lobster Community" to drive automation workflow sharing.</p>
-            <p>Founded three large student organisations during undergrad; led projects earning <strong>four Guangdong provincial awards</strong>. I believe the best products are the ones where the technology becomes invisible.</p>
+          <div class="panel-body">
+            <ul class="focus-list">
+              <li>
+                <strong>座舱 AI 产品规划</strong>
+                <span>负责长安深蓝座舱 AI 方向产品模块，围绕车内高频出行场景拆解用户需求、交互路径与功能边界。</span>
+              </li>
+              <li>
+                <strong>MegaClaw 产品协同</strong>
+                <span>梳理座舱 AI Agent 能力边界、任务流与交互触点，推动概念方案、原型设计、需求评审与研发沟通。</span>
+              </li>
+              <li>
+                <strong>地图 Agent 场景设计</strong>
+                <span>聚焦导航、POI、路线规划与出行决策场景，设计“用户意图识别 - 信息推荐 - 操作闭环”的车载交互链路。</span>
+              </li>
+              <li>
+                <strong>语音体验优化</strong>
+                <span>分析车内语音指令、多轮对话、任务中断与误识别等体验问题，输出优化建议、交互策略与验收要点。</span>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <div class="side-stack">
+          <article class="metric-card">
+            <div class="metric-value">AI</div>
+            <p class="metric-note">从需求、任务流、交互触点到验收要点，关注 Agent 能力如何进入真实车内场景。</p>
+          </article>
+          <article class="feature-panel">
+            <div class="panel-top">
+              <h3 class="panel-title">座舱关键词</h3>
+              <div class="panel-meta">C75</div>
+            </div>
+            <div class="panel-body">
+              <div class="tags">
+                <span class="tag">智能座舱</span>
+                <span class="tag">地图 Agent</span>
+                <span class="tag">语音交互</span>
+                <span class="tag">用户意图识别</span>
+                <span class="tag">HMI 触点</span>
+                <span class="tag">AI Native</span>
+              </div>
+            </div>
+          </article>
+          <article class="feature-panel">
+            <div class="panel-top">
+              <h3 class="panel-title">教育底座</h3>
+              <div class="panel-meta">York HCI</div>
+            </div>
+            <div class="panel-body">
+              <p class="section-intro">英国 Times 排名 17 的约克大学人机交互硕士，欧洲多地研学汽车文化，App 原型曾获导师认可并推至英国政府竞选。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="deep-band">
+      <div class="section">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Experience</p>
+            <h2>AI Agent、增长系统、游戏交互与数据分析构成一条连续能力线。</h2>
+          </div>
+          <p class="section-intro">
+            车企座舱需要的不只是“会写需求”，而是理解用户场景、Agent 工作流、工程协作和可验证结果。过往经历把这几件事串在一起。
+          </p>
+        </div>
+
+        <div class="case-grid">
+          <article class="case">
+            <div class="case-number">400%</div>
+            <div>
+              <h3>EasyClaw · AI Agent 工作流</h3>
+              <p>负责自动化工作流设计，表现被 CEO 傅盛选中，推动公司内部 AI Native 变革，提高增长组运作产出 400%。</p>
+            </div>
+          </article>
+          <article class="case">
+            <div class="case-number">6</div>
+            <div>
+              <h3>多 Agent 阵列运营系统</h3>
+              <p>单人全栈开发 xc.easyclaw.com，覆盖 6 条业务线，为增长组节省 6 个运营员工，EasyClaw 官推涨粉至 418%。</p>
+            </div>
+          </article>
+          <article class="case">
+            <div class="case-number">20</div>
+            <div>
+              <h3>金山西山居 · UI/UX</h3>
+              <p>参与《剑侠世界 4》界面设计与视觉优化，负责 20 个界面模块的 UI 资源交付，并协作 12 个核心系统动效与交互。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="section-head">
+        <div>
+          <p class="kicker">Projects</p>
+          <h2>汽车、城市地图与用户研究，把 HCI 放回真实移动场景。</h2>
+        </div>
+        <p class="section-intro">
+          C75 保留 CDS 与约克游，是因为它们能补足智能座舱岗位需要的“交通工具理解”和“出行场景设计”证据，而不是泛泛展示项目数量。
+        </p>
+      </div>
+
+      <div class="rail">
+        <article class="rail-item">
+          <div class="rail-date">2025.9 - 2025.10</div>
+          <div>
+            <h3 class="rail-title">CDS 交通工具设计学院 · 车辆与座舱设计学员</h3>
+            <p class="rail-desc">参与设计训练，完成四门轿车外观与内饰概念方案，理解整车 Package、造型比例与座舱体验约束。围绕外观比例、内饰分区、HMI 触点与空间可行性，建立车辆设计与交互体验连接。</p>
+            <div class="tags">
+              <span class="tag">整车 Package</span>
+              <span class="tag">HMI 触点</span>
+              <span class="tag">座舱体验</span>
+              <span class="tag">14 小时/日训练</span>
+            </div>
+          </div>
+        </article>
+        <article class="rail-item">
+          <div class="rail-date">2024.10 - 2025.1</div>
+          <div>
+            <h3 class="rail-title">约克游 · 城市地图 App / 用户研究与交互设计</h3>
+            <p class="rail-desc">为英国约克市政府开发探索型 App 原型，鼓励游客游览本地小众商店。构建问卷体系，明确地图导航、兴趣点推荐、活动提示等核心功能，并通过游戏化机制提升城市探索沉浸感。</p>
+            <div class="tags">
+              <span class="tag">地图导航</span>
+              <span class="tag">POI 推荐</span>
+              <span class="tag">用户测试</span>
+              <span class="tag">体验度提升 70%</span>
+            </div>
+          </div>
+        </article>
+        <article class="rail-item">
+          <div class="rail-date">2024.1 - 2024.2</div>
+          <div>
+            <h3 class="rail-title">泰迪科技 · 数据分析实习生</h3>
+            <p class="rail-desc">使用 SPSS、Python 等工具处理与分析 54 万条使用数据，挖掘用户行为与潜在需求；与产品和开发合作推动 3 项核心功能交互优化，提升用户任务完成率 18%。</p>
+            <div class="tags">
+              <span class="tag">54 万条数据</span>
+              <span class="tag">Python</span>
+              <span class="tag">SPSS</span>
+              <span class="tag">任务完成率 +18%</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="profile" class="section">
+      <div class="two-col">
+        <aside class="portrait-block">
+          <img class="portrait" src="./avatar.jpg" alt="吴优头像" />
+          <div class="contact-panel">
+            <div class="contact-line"><strong>邮箱</strong><a href="mailto:wyou561@163.com">wyou561@163.com</a></div>
+            <div class="contact-line"><strong>电话</strong><a href="tel:+8617689790507">+86 17689790507</a></div>
+            <div class="contact-line"><strong>英国</strong><a href="tel:+447880819267">+44 7880819267</a></div>
+            <div class="contact-line"><strong>GitHub</strong><a href="https://github.com/icebergwuw" target="_blank" rel="noopener noreferrer">icebergwuw</a></div>
+          </div>
+        </aside>
+
+        <div class="education-panel">
+          <div class="text-panel">
+            <p class="kicker">Education</p>
+            <h3>约克大学（英国） · 人机交互硕士</h3>
+            <p>2024.9 - 2025.9。英国 Times 排名 17，欧洲多地研学汽车文化（纽北、古德伍德等），专攻 AI 出行方向。</p>
+          </div>
+          <div class="text-panel">
+            <p class="kicker">Awards</p>
+            <ul class="award-list">
+              <li><strong>2023.06</strong><span>第十三届全国大学生“创新、创意及创业”挑战赛 广东省一等奖</span></li>
+              <li><strong>2023.07</strong><span>第九届中国国际“互联网+”大学生创新创业大赛产业赛道 广东省铜奖</span></li>
+              <li><strong>2023.06</strong><span>第十三届全国大学生“创新、创意及创业”挑战赛 广东省二等奖</span></li>
+              <li><strong>2022.07</strong><span>第八届中国国际“互联网+”大学生创新创业大赛高教主赛道 广东省铜奖</span></li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="experience">
-      <div class="section-header reveal">
-        <h2 class="section-title" data-zh>工作 & 项目</h2>
-        <h2 class="section-title" data-en>Experience</h2>
-        <div class="section-line"></div>
-      </div>
-
-      <div class="exp-item reveal">
-        <div class="exp-meta">
-          <div class="exp-period">2025 — NOW</div>
-          <div class="exp-company" data-zh>猎豹移动集团<br/>EasyClaw 项目组</div>
-          <div class="exp-company" data-en>Cheetah Mobile Group<br/>EasyClaw</div>
-          <div class="exp-tags">
-            <span class="tag" data-zh>AI Agent</span>
-            <span class="tag" data-zh>产品经理</span>
-            <span class="tag" data-zh>自动化</span>
-            <span class="tag" data-en>AI Agent</span>
-            <span class="tag" data-en>Product</span>
-            <span class="tag" data-en>Automation</span>
-          </div>
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <p class="kicker">Skill Map</p>
+          <h2>面向智能座舱岗位的能力组合。</h2>
         </div>
-        <div class="exp-content">
-          <div class="exp-title" data-zh>AI Agent 产品设计师</div>
-          <div class="exp-title" data-en>AI Agent Product Designer</div>
-          <div class="exp-desc" data-zh>国内首款 OpenClaw 龙虾产品，负责 AI Agent 核心能力建设与自动化工作流设计。</div>
-          <div class="exp-desc" data-en>Led core AI Agent product development for EasyClaw, driving the evolution of automation workflows from feature-driven to genuinely user-centric design.</div>
-          <ul class="exp-bullets" data-zh>
-            <li>参与 EasyClaw 产品演进，重点负责 AI Agent 自动化工作流设计与能力抽象，推动产品从功能性向易用性升级</li>
-            <li>设计并迭代多类用户任务自动化方案（自动化增长运营、跨平台操作），沉淀可复用 Workflow 模板</li>
-            <li>独立完成「星辰 AI Agent」开发，覆盖 6 条业务线，强化 AI 主动服务与多任务处理能力</li>
-            <li>设计 AI Agent 使用与分享社区「龙虾社区」，促进用户沉淀自动化方案与使用习惯</li>
-          </ul>
-          <ul class="exp-bullets" data-en>
-            <li>Drove AI Agent capability advancement with focus on workflow design and capability abstraction, shifting the product from functional to easy-to-use</li>
-            <li>Designed and iterated multiple user task automation solutions; consolidated reusable Workflow templates across platforms</li>
-            <li>Independently delivered "Xingchen AI Agent" end-to-end, covering 6 business lines, enhancing proactive AI service and multi-task handling</li>
-            <li>Designed "Lobster Community" — an AI Agent sharing platform — to drive user retention and automation habit formation</li>
-          </ul>
-          <div class="exp-result" data-zh>✦ 为公司运营节省 6 个员工开销 · 提升用户留存与使用频次</div>
-          <div class="exp-result" data-en>✦ Saved the equivalent of 6 FTEs in operational cost · Increased user retention and engagement</div>
-          <div class="exp-links">
-            <a href="https://xc.easyclaw.com" class="exp-link" target="_blank" rel="noopener noreferrer" data-zh>星辰 AI Agent</a>
-            <a href="https://club.easyclaw.com" class="exp-link" target="_blank" rel="noopener noreferrer" data-zh>龙虾社区</a>
-            <a href="https://xc.easyclaw.com" class="exp-link" target="_blank" rel="noopener noreferrer" data-en>Xingchen AI Agent</a>
-            <a href="https://club.easyclaw.com" class="exp-link" target="_blank" rel="noopener noreferrer" data-en>Lobster Community</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="exp-item reveal">
-        <div class="exp-meta">
-          <div class="exp-period">2024.10 — 12</div>
-          <div class="exp-company" data-zh>约克市政府<br/>校园项目</div>
-          <div class="exp-company" data-en>City of York Council<br/>Academic Project</div>
-          <div class="exp-tags">
-            <span class="tag" data-zh>用户研究</span>
-            <span class="tag" data-zh>交互设计</span>
-            <span class="tag" data-zh>游戏化</span>
-            <span class="tag" data-en>User Research</span>
-            <span class="tag" data-en>IxD</span>
-            <span class="tag" data-en>Gamification</span>
-          </div>
-        </div>
-        <div class="exp-content">
-          <div class="exp-title" data-zh>约克游 · 城市探索 App</div>
-          <div class="exp-title" data-en>York Explorer · City Discovery App</div>
-          <div class="exp-desc" data-zh>为英国约克市政府开发探索型 App，鼓励游客游览本地小众商店。</div>
-          <div class="exp-desc" data-en>Developed an exploration-focused app for the City of York Council, encouraging tourists to discover local independent businesses through gamified experiences.</div>
-          <ul class="exp-bullets" data-zh>
-            <li>构建用户问卷体系，调研用户明确核心功能：地图导航、兴趣点推荐、活动提示</li>
-            <li>引入游戏化机制：签到奖励、探索成就系统，设计以「任务驱动」和「探索成就」为核心的界面</li>
-            <li>引入行为动机设计原则，提升用户在城市探索中的沉浸感</li>
-            <li>组织并参与用户测试，收集反馈进行迭代优化</li>
-          </ul>
-          <ul class="exp-bullets" data-en>
-            <li>Designed a user survey framework to identify core features: map navigation, POI recommendations, and event alerts</li>
-            <li>Introduced gamification mechanics — check-in rewards and exploration achievements — grounded in BJ Fogg's behaviour model</li>
-            <li>Applied behavioural motivation design principles to deepen user immersion in city exploration</li>
-            <li>Organised and facilitated two rounds of usability testing; iterated design based on feedback</li>
-          </ul>
-          <div class="exp-result" data-zh>✦ 用户体验提升 70% · 英国导师推荐至政府竞选</div>
-          <div class="exp-result" data-en>✦ User experience score improved 70% · Recommended by UK supervisor for government pitch</div>
-        </div>
-      </div>
-
-      <div class="exp-item reveal">
-        <div class="exp-meta">
-          <div class="exp-period">2022.4 — 2023.7</div>
-          <div class="exp-company" data-zh>校园项目</div>
-          <div class="exp-company" data-en>Academic Project</div>
-          <div class="exp-tags">
-            <span class="tag" data-zh>产品经理</span>
-            <span class="tag" data-zh>UX 设计</span>
-            <span class="tag" data-zh>医疗 AI</span>
-            <span class="tag" data-en>Product Manager</span>
-            <span class="tag" data-en>UX Design</span>
-            <span class="tag" data-en>Medical AI</span>
-          </div>
-        </div>
-        <div class="exp-content">
-          <div class="exp-title" data-zh>健康卫士 · AI 医疗导诊</div>
-          <div class="exp-title" data-en>Health Guardian · AI Medical Triage</div>
-          <div class="exp-desc" data-zh>疫情背景下，面向老人患者优化医院就医流程的智能导诊产品。</div>
-          <div class="exp-desc" data-en>An intelligent hospital triage product designed to optimise the patient journey for elderly users during the COVID-19 pandemic.</div>
-          <ul class="exp-bullets" data-zh>
-            <li>设计对话式交互流程，结合人机交互原理优化问诊路径，降低使用门槛</li>
-            <li>基于医疗知识图谱与决策树算法，构建导诊问卷逻辑，推荐精准度提高 85%</li>
-            <li>撰写商业计划书，设计高质量 PPT，主导项目路演清晰传达产品价值</li>
-          </ul>
-          <ul class="exp-bullets" data-en>
-            <li>Designed a conversational interaction flow using HCI principles to simplify the triage pathway and lower barriers for elderly users</li>
-            <li>Built triage logic with a medical knowledge graph and decision tree algorithm, improving recommendation accuracy by 85%</li>
-            <li>Authored the business plan and led project pitches, effectively communicating product value to competition judges</li>
-          </ul>
-          <div class="exp-result" data-zh>✦ 推荐精准度 +85% · 互联网+ 广东省铜奖 · 三创赛广东省一等奖</div>
-          <div class="exp-result" data-en>✦ Recommendation accuracy +85% · Internet+ Guangdong Bronze · 3C Challenge Guangdong First Prize</div>
-        </div>
-      </div>
-
-      <div class="exp-item reveal">
-        <div class="exp-meta">
-          <div class="exp-period">2024.1 — 2024.2</div>
-          <div class="exp-company" data-zh>CDS<br/>交通工具设计学院</div>
-          <div class="exp-company" data-en>CDS Transportation<br/>Design Institute</div>
-          <div class="exp-tags">
-            <span class="tag" data-zh>车辆设计</span>
-            <span class="tag" data-zh>工业设计</span>
-            <span class="tag" data-en>Vehicle Design</span>
-            <span class="tag" data-en>Industrial Design</span>
-          </div>
-        </div>
-        <div class="exp-content">
-          <div class="exp-title" data-zh>车辆设计学员</div>
-          <div class="exp-title" data-en>Vehicle Design Student</div>
-          <div class="exp-desc" data-zh>课程由奥迪前设计师主讲，理想汽车设计师殷格、泛亚设计师李昂、沃尔沃 EX90 设计师参与授课。</div>
-          <div class="exp-desc" data-en>Intensive programme led by a former Audi designer, with guest instruction from Li Auto's Yin Ge, GAC's Li Ang, and the Volvo EX90 design team.</div>
-          <ul class="exp-bullets" data-zh>
-            <li>分析现有轿车外观，提炼设计趋势和用户偏好，确定设计方向，注重 Package 保证可行性</li>
-            <li>利用草图、PS 等工具展现车辆外形，注重线条流畅性与现代感</li>
-            <li>每日 14 小时练习，多次设计迭代，完成一辆四门轿车外观及内饰设计</li>
-          </ul>
-          <ul class="exp-bullets" data-en>
-            <li>Analysed existing sedan designs, extracted trends and user preferences, and validated Package feasibility</li>
-            <li>Used sketching and Photoshop to develop vehicle forms with emphasis on line fluidity and modern aesthetics</li>
-            <li>14 hours of daily practice; completed multiple design iterations to deliver a full four-door sedan exterior and interior</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="education">
-      <div class="section-header reveal">
-        <h2 class="section-title" data-zh>教育背景</h2>
-        <h2 class="section-title" data-en>Education</h2>
-        <div class="section-line"></div>
-      </div>
-      <div class="edu-grid">
-        <div class="edu-card reveal">
-          <div class="edu-period">2024.9 — 2026.1</div>
-          <div class="edu-school" data-zh>约克大学<br/>YORK</div>
-          <div class="edu-school" data-en>University<br/>of York</div>
-          <div class="edu-degree" data-zh>MSc Human-Centred Interactive Technologies<br/>人机交互 · 硕士</div>
-          <div class="edu-degree" data-en>MSc Human-Centred Interactive Technologies</div>
-          <div class="edu-note" data-zh>英国综合排名 17<br/>欧洲多地研学汽车文化<br/>研究 AI 出行应用，实践产品开发项目</div>
-          <div class="edu-note" data-en>Ranked 17th in UK (overall)<br/>Research travel across Europe exploring automotive culture<br/>AI mobility applications · product development practice</div>
-        </div>
-        <div class="edu-card reveal">
-          <div class="edu-period">2020.9 — 2024.6</div>
-          <div class="edu-school" data-zh>广州大学<br/>GZHU</div>
-          <div class="edu-school" data-en>Guangzhou<br/>University</div>
-          <div class="edu-degree" data-zh>软件工程 · 本科<br/>广州大学华软软件学院</div>
-          <div class="edu-degree" data-en>BSc Software Engineering<br/>Huaruan Software Institute, GZHU</div>
-          <div class="edu-note" data-zh>主导开发多个 AI 产品<br/>四个广东省级竞赛奖项<br/>创立三个大型学生组织</div>
-          <div class="edu-note" data-en>Led development of multiple AI products<br/>Four Guangdong provincial competition awards<br/>Founded three large student organisations</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="awards">
-      <div class="section-header reveal">
-        <h2 class="section-title" data-zh>主要奖项</h2>
-        <h2 class="section-title" data-en>Awards</h2>
-        <div class="section-line"></div>
-      </div>
-      <div class="awards-grid">
-        <div class="award-card reveal">
-          <div class="award-year">2023</div>
-          <div class="award-name" data-zh>健康卫士</div>
-          <div class="award-name" data-en>Health Guardian</div>
-          <div class="award-level" data-zh>广东省一等奖</div>
-          <div class="award-level" data-en>Guangdong First Prize</div>
-          <div class="award-org" data-zh>第十三届全国大学生「创新、创意及创业」挑战赛</div>
-          <div class="award-org" data-en>13th National Collegiate Innovation, Creativity & Entrepreneurship Challenge</div>
-        </div>
-        <div class="award-card reveal">
-          <div class="award-year">2023</div>
-          <div class="award-name" data-zh>图像智投</div>
-          <div class="award-name" data-en>Smart Ad Placement</div>
-          <div class="award-level" data-zh>广东省铜奖</div>
-          <div class="award-level" data-en>Guangdong Bronze</div>
-          <div class="award-org" data-zh>第九届中国国际「互联网+」大学生创新创业大赛 · 产业赛道</div>
-          <div class="award-org" data-en>9th China Internet+ Innovation & Entrepreneurship Competition · Industry Track</div>
-        </div>
-        <div class="award-card reveal">
-          <div class="award-year">2023</div>
-          <div class="award-name" data-zh>甜田农场</div>
-          <div class="award-name" data-en>Sweet Field Farm</div>
-          <div class="award-level" data-zh>广东省二等奖</div>
-          <div class="award-level" data-en>Guangdong Second Prize</div>
-          <div class="award-org" data-zh>第十三届全国大学生「创新、创意及创业」挑战赛</div>
-          <div class="award-org" data-en>13th National Collegiate Innovation, Creativity & Entrepreneurship Challenge</div>
-        </div>
-        <div class="award-card reveal">
-          <div class="award-year">2022</div>
-          <div class="award-name" data-zh>健康卫士</div>
-          <div class="award-name" data-en>Health Guardian</div>
-          <div class="award-level" data-zh>广东省铜奖</div>
-          <div class="award-level" data-en>Guangdong Bronze</div>
-          <div class="award-org" data-zh>第八届中国国际「互联网+」大学生创新创业大赛 · 高教主赛道</div>
-          <div class="award-org" data-en>8th China Internet+ Innovation & Entrepreneurship Competition · Higher Education Track</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills">
-      <div class="section-header reveal">
-        <h2 class="section-title" data-zh>技能</h2>
-        <h2 class="section-title" data-en>Skills</h2>
-        <div class="section-line"></div>
+        <p class="section-intro">
+          不是工具堆叠，而是围绕车内场景、用户意图、Agent 工作流、原型落地与数据反馈形成的产品能力。
+        </p>
       </div>
       <div class="skills-grid">
-        <div class="skill-group reveal">
-          <div class="skill-group-title" data-zh>产品 & 设计</div>
-          <div class="skill-group-title" data-en>Product & Design</div>
-          <div class="skill-item">
-            <span class="skill-name" data-zh>用户研究 / UX</span>
-            <span class="skill-name" data-en>User Research / UX</span>
-            <div class="skill-bar"><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot"></div></div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name" data-zh>交互设计</span>
-            <span class="skill-name" data-en>Interaction Design</span>
-            <div class="skill-bar"><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot"></div></div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name" data-zh>产品策划 / 路演</span>
-            <span class="skill-name" data-en>Product Strategy / Pitching</span>
-            <div class="skill-bar"><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div></div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name" data-zh>车辆外观 / 内饰设计</span>
-            <span class="skill-name" data-en>Vehicle Exterior / Interior Design</span>
-            <div class="skill-bar"><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot"></div><div class="skill-dot"></div></div>
-          </div>
+        <div class="skill-cell">
+          <h3>座舱产品</h3>
+          <p>智能座舱、地图 Agent、语音体验、多轮对话、车载 HMI 触点、功能边界拆解。</p>
         </div>
-        <div class="skill-group reveal">
-          <div class="skill-group-title" data-zh>AI & 技术</div>
-          <div class="skill-group-title" data-en>AI & Technology</div>
-          <div class="skill-item">
-            <span class="skill-name" data-zh>AI Agent 开发</span>
-            <span class="skill-name" data-en>AI Agent Development</span>
-            <div class="skill-bar"><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot"></div></div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name" data-zh>自动化工作流设计</span>
-            <span class="skill-name" data-en>Automation Workflow Design</span>
-            <div class="skill-bar"><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot"></div></div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name">Prompt Engineering</span>
-            <div class="skill-bar"><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot"></div></div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name" data-zh>软件工程基础</span>
-            <span class="skill-name" data-en>Software Engineering</span>
-            <div class="skill-bar"><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot"></div><div class="skill-dot"></div></div>
-          </div>
+        <div class="skill-cell">
+          <h3>AI Native</h3>
+          <p>AI Agent 工作流、多 Agent 阵列、自动化运营系统、交互 Demo 独立落地。</p>
         </div>
-        <div class="skill-group reveal">
-          <div class="skill-group-title" data-zh>工具 & 软件</div>
-          <div class="skill-group-title" data-en>Tools & Languages</div>
-          <div class="skill-item">
-            <span class="skill-name">Figma</span>
-            <div class="skill-bar"><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot"></div></div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name">Adobe PS / AI</span>
-            <div class="skill-bar"><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot"></div><div class="skill-dot"></div></div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name" data-zh>Python / JS 基础</span>
-            <span class="skill-name" data-en>Python / JavaScript</span>
-            <div class="skill-bar"><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot"></div><div class="skill-dot"></div></div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name" data-zh>英语（学术）</span>
-            <span class="skill-name" data-en>English (Academic)</span>
-            <div class="skill-bar"><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot filled"></div><div class="skill-dot"></div></div>
-          </div>
+        <div class="skill-cell">
+          <h3>用户体验</h3>
+          <p>HCI、用户研究、问卷体系、用户测试、任务驱动体验、游戏化机制。</p>
+        </div>
+        <div class="skill-cell">
+          <h3>数据与协作</h3>
+          <p>Python、SPSS、数据清洗分析、需求评审、研发沟通、验收要点沉淀。</p>
         </div>
       </div>
     </section>
-
   </main>
 
-  <footer>
-    <div class="footer-name" data-zh>吴优</div>
-    <div class="footer-name" data-en>WU YOU</div>
-    <div class="footer-contact">
-      <a href="mailto:wyou561@163.com" class="contact-link">
-        <span>EMAIL</span> wyou561@163.com
-      </a>
-      <a href="tel:17689790507" class="contact-link" data-zh>
-        <span>TEL</span> 176 8979 0507
-      </a>
-      <a href="tel:+8617689790507" class="contact-link" data-en>
-        <span>TEL</span> +86 176 8979 0507
-      </a>
+  <footer class="footer">
+    <h2>面向车企智能座舱与 AI 交互岗位。</h2>
+    <p>当前版本基于 C75：车企方向，7 月 5 日编辑版。内容聚焦镁佳科技、长安深蓝座舱 AI、EasyClaw AI Agent 与 HCI 出行项目。</p>
+    <div class="footer-links">
+      <a class="button primary" href="mailto:wyou561@163.com">wyou561@163.com</a>
+      <a class="button" href="https://github.com/icebergwuw" target="_blank" rel="noopener noreferrer">GitHub · icebergwuw</a>
     </div>
   </footer>
-
-  <script>
-    const btn = document.getElementById('langBtn');
-    const body = document.body;
-
-    function setLang(lang) {
-      body.classList.toggle('lang-zh', lang === 'zh');
-      body.classList.toggle('lang-en', lang === 'en');
-      btn.textContent = lang === 'zh' ? 'EN' : '中文';
-      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
-      document.title = lang === 'zh' ? '吴优 — HCI · AI · Design' : 'Wu You — HCI · AI · Design';
-      localStorage.setItem('cv-lang', lang);
-    }
-
-    btn.addEventListener('click', () => {
-      setLang(body.classList.contains('lang-zh') ? 'en' : 'zh');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    const saved = localStorage.getItem('cv-lang');
-    if (saved) setLang(saved);
-    else setLang('zh');
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach((e, i) => {
-        if (e.isIntersecting) {
-          setTimeout(() => e.target.classList.add('visible'), i * 80);
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
 </body>
 </html>

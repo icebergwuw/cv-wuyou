@@ -159,5 +159,5 @@ git push
 ## 当前状态
 
 - C75 已同步为项目内文字快照。
-- C75 尚未同步到 `base.html`、`template.html`、`index.html`。
-- 当前 PDF/HTML 自动生成链路仍需后续统一。
+- C75 已同步到 `index.html`、`base.html`、`template.html`。
+- 当前 PDF 导出链路仍需后续统一到高质量矢量导出。

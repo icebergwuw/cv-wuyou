@@ -68,7 +68,7 @@ CV网站/
 
 - C75 已有项目内文字快照：`versions/C/C75/content.md`
 - C75 已有 Sketch 同步记录：`versions/C/C75/sketch.md`
-- C75 尚未同步到 `base.html`、`template.html`、`index.html`
+- C75 已同步到 `index.html`、`base.html`、`template.html`
 - C75 尚未作为 PDF 导出物进入项目
 
 ## 后续整理建议
