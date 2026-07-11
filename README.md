@@ -23,7 +23,7 @@
 ```text
 CV网站/
 ├── index.html                 # 线上主页，确认前不要直接改
-├── index-preview.html          # 主页预览稿
+├── index-preview.html          # 主页预览稿，当前与线上主页一致
 ├── base.html                   # 简历内容母版
 ├── template.html               # PDF 样式模板
 ├── avatar.jpg                  # 头像素材
@@ -159,5 +159,8 @@ git push
 ## 当前状态
 
 - C75 已同步为项目内文字快照。
-- C75 已同步到 `index.html`、`base.html`、`template.html`。
+- 线上 `index.html` 已恢复为旧版主页。
+- `index-preview.html` 当前与 `index.html` 保持一致，用作下一轮网页改版起点。
+- C75 内容已同步到 `base.html`、`template.html`，但未作为当前线上网页展示。
+- 被否掉的 C75 网页方案已归档到 `drafts/index-preview-2026-07-11-c75-rejected.html`。
 - 当前 PDF 导出链路仍需后续统一到高质量矢量导出。

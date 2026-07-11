@@ -7,7 +7,7 @@
 ```text
 CV网站/
 ├── index.html                 # 线上主页，禁止直接改；确认后才由 preview 覆盖
-├── index-preview.html          # 当前主页预览稿
+├── index-preview.html          # 当前主页预览稿，与线上主页保持一致
 ├── base.html                   # 简历完整内容库
 ├── template.html               # PDF 样式模板
 ├── avatar.jpg                  # 线上与 PDF 共用头像
@@ -43,7 +43,7 @@ CV网站/
 ### 线上入口
 
 - `index.html` 是线上主页。
-- `index-preview.html` 是预览稿。
+- `index-preview.html` 是预览稿；当前与线上主页保持一致，下一轮网页改版从这里开始。
 - 任何主页改动先进入 `index-preview.html`，确认后再覆盖 `index.html`。
 
 ### 方向版本
@@ -68,7 +68,10 @@ CV网站/
 
 - C75 已有项目内文字快照：`versions/C/C75/content.md`
 - C75 已有 Sketch 同步记录：`versions/C/C75/sketch.md`
-- C75 已同步到 `index.html`、`base.html`、`template.html`
+- 线上 `index.html` 已恢复为旧版主页
+- `index-preview.html` 当前与线上主页保持一致
+- C75 已同步到 `base.html`、`template.html`，但未作为当前线上网页展示
+- 被否掉的 C75 网页方案已归档到 `drafts/index-preview-2026-07-11-c75-rejected.html`
 - C75 尚未作为 PDF 导出物进入项目
 
 ## 后续整理建议
