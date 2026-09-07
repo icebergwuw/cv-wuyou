@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>吴优 — 智能座舱 AI 产品经理</title>
+<title>吴优 | 智能座舱 AI 产品经理｜地图导航与语音交互</title>
 <link href="./avatar.jpg" rel="icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -33,15 +33,7 @@
       overflow-x: hidden;
     }
 
-    [data-zh], [data-en] { display: none !important; }
-    body.lang-zh span[data-zh], body.lang-en span[data-en] { display: inline !important; }
-    body.lang-zh div[data-zh], body.lang-en div[data-en],
-    body.lang-zh p[data-zh], body.lang-en p[data-en],
-    body.lang-zh ul[data-zh], body.lang-en ul[data-en],
-    body.lang-zh h2[data-zh], body.lang-en h2[data-en] { display: block !important; }
-    body.lang-zh a[data-zh], body.lang-en a[data-en] { display: flex !important; }
-    body.lang-zh li[data-zh], body.lang-en li[data-en] { display: list-item !important; }
-
+    body.lang-zh [data-en], body.lang-en [data-zh] { display: none !important; }
     .lang-switch {
       font-family: 'Inter', sans-serif;
       font-size: 11px;
@@ -765,7 +757,32 @@
       .footer-name { font-size: 48px; }
     }
   </style>
-</head>
+<meta content="人机交互硕士｜AI Native｜Agent 0→1 落地" name="description"/><meta content="吴优 | 智能座舱 AI 产品经理｜地图导航与语音交互" property="og:title"/><meta content="人机交互硕士｜AI Native｜Agent 0→1 落地" property="og:description"/><meta content="https://wuyou.uk/" property="og:url"/><meta content="profile" property="og:type"/><meta content="https://wuyou.uk/hero-bg-new.png" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><link href="https://wuyou.uk/" rel="canonical"/><style id="release-usability">
+    .header-nav { gap: 20px; flex-wrap: wrap; }
+    .nav-logo { flex-shrink: 0; }
+    .nav-links { gap: 20px; }
+    .header-info { display: grid; grid-template-columns: max-content max-content minmax(0, 1fr) max-content; gap: 24px; align-items: start; }
+    .header-info .info-item { min-width: 0; }
+    .header-info .info-value { line-height: 1.6; }
+    .header-info a { text-decoration: none; }
+    .header-info a:hover { text-decoration: underline; text-underline-offset: 4px; }
+    .footer-contact a { min-height: 44px; display: inline-flex; align-items: center; }
+    .exp-content, .edu-card, .trait-text, .skill-group { min-width: 0; }
+    .edu-note { color: var(--ink-soft); }
+    .edu-school, .award-org, .exp-bullets li { overflow-wrap: anywhere; }
+    :focus-visible { outline: 2px solid var(--lake); outline-offset: 4px; }
+    @media (max-width: 520px) {
+      header { padding: 28px 24px; }
+      main { padding: 0 24px; }
+      .header-nav { gap: 16px; }
+      .header-info { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 20px; }
+      .header-info a { display: inline-flex; align-items: center; min-height: 32px; }
+      .edu-card, .award-card { padding: 24px; }
+      .edu-school { font-size: 26px; line-height: 1.35; }
+      .exp-bullets li { font-size: 14px; line-height: 1.8; }
+      .exp-links, .footer-contact { flex-wrap: wrap; }
+    }
+    </style></head>
 <body class="lang-zh">
 <header>
 <div class="header-content">
@@ -796,8 +813,8 @@
 <div class="info-item">
 <span class="info-label" data-zh="">电话</span>
 <span class="info-label" data-en="">Phone</span>
-<span class="info-value" data-zh="">176 8979 0507</span>
-<span class="info-value" data-en="">+86 176 8979 0507</span>
+<span class="info-value" data-zh=""><a href="tel:+8617689790507">176 8979 0507</a></span>
+<span class="info-value" data-en=""><a href="tel:+8617689790507">+86 176 8979 0507</a></span>
 </div>
 <div class="info-item">
 <span class="info-label" data-zh="">学历</span>
@@ -806,9 +823,9 @@
 <span class="info-value" data-en="">MSc HCI · University of York</span>
 </div>
 <div class="info-item">
-<span class="info-label" data-zh="">作品集</span>
-<span class="info-label" data-en="">Portfolio</span>
-<span class="info-value"><a href="https://wuyou.uk">wuyou.uk</a></span>
+<span class="info-label" data-zh="">简历</span>
+<span class="info-label" data-en="">Resume</span>
+<span class="info-value"><a class="resume-download" download="CVC.pdf" href="./CVC.pdf"><span data-zh="">下载简历 PDF</span><span data-en="">Download CV PDF</span></a></span>
 </div>
 </div>
 </div>
@@ -888,8 +905,6 @@
 <div class="exp-content">
 <div class="exp-title" data-zh="">智能座舱产品经理</div>
 <div class="exp-title" data-en="">Digital Cockpit Product Manager</div>
-
-
 <ul class="exp-bullets" data-zh=""><li><strong>7 款全球车型座舱 AI 产品规划：</strong>负责长安深蓝 SL03、S05、L06、L07、S07、S09、马自达 EZ6(6e) 的平台化智能座舱产品 UE 定义及设计，主要负责地图 Agent 和语音 Agent 模块</li><li><strong>地图 Agent 场景设计：</strong>聚焦导航、POI、路线规划与出行决策场景，优化 50+ 项多指令意图、新增 20+ 个场景模糊指令意图识别，与 NLU 团队共同从传统搜索导航升级至导航 Agent 优化使用体验，使用户意图识别率提高约 135%</li><li><strong>语音 Agent 体验优化：</strong>分析车内语音指令、多轮对话、任务中断与误识别等 100+ 体验问题，通过新增端侧语音功能点的形式，突破传统大模型速度限制，提高用户意图识别率，共 20+ 任务意图的平均语音响应时间降至约 20%</li></ul>
 <ul class="exp-bullets" data-en=""><li><strong>Cockpit AI planning for seven global vehicle models:</strong> defined and designed platform-level cockpit UE for DEEPAL SL03, S05, L06, L07, S07, S09 and Mazda EZ6(6e), primarily covering Navigation Agent and Voice Agent modules.</li><li><strong>Navigation Agent scenario design:</strong> optimised 50+ multi-command intents and added recognition for 20+ ambiguous scenario-based command intents across navigation, POI, route planning and travel decisions. Worked with the NLU team to upgrade traditional search-based navigation to a Navigation Agent, increasing user-intent recognition by approximately 135%.</li><li><strong>Voice Agent experience optimisation:</strong> analysed 100+ issues involving in-car voice commands, multi-turn dialogue, task interruption and misrecognition. Added on-device voice capabilities to address conventional large-model latency and improve intent recognition; average voice response time across 20+ task intents fell to approximately 20% of its previous level.</li></ul>
 </div>
@@ -911,12 +926,8 @@
 <div class="exp-content">
 <div class="exp-title" data-zh="">AI 产品经理</div>
 <div class="exp-title" data-en="">AI Product Manager</div>
-
-
 <ul class="exp-bullets" data-zh=""><li><strong>EasyClaw（首个国产龙虾）AI 工作流设计：</strong>设计自媒体、产品、运营、客服等行业的 12 个 Agent，为 EasyClaw 产品拓宽适合业务方向</li><li><strong>设计多 Agent 自动运营系统 - xc.easyclaw.com：</strong>覆盖运营、客服、KOL 等 6 条业务线，为增长组提升效率 400%，EasyClaw 官推涨粉至 418%</li><li><strong>设计龙虾社区 - club.easyclaw.com：</strong>设计 UGC + AI Agent 模式，收集 200+ 用户真实使用场景案例和痛点，反馈至产品优化方向完成闭环</li></ul>
 <ul class="exp-bullets" data-en=""><li><strong>EasyClaw AI workflow design:</strong> designed 12 Agents for content creation, product, operations and customer service, expanding applicable business directions for EasyClaw, described in the source resume as the first domestic OpenClaw-style product.</li><li><strong>Multi-Agent automated operations system - xc.easyclaw.com:</strong> covered six business lines including operations, customer service and KOLs, increased growth-team efficiency by 400%, and brought EasyClaw's official social following to 418% of its baseline.</li><li><strong>Lobster Community - club.easyclaw.com:</strong> designed a UGC + AI Agent model, collected 200+ real user scenarios and pain points, and fed findings back into product improvements to close the feedback loop.</li></ul>
-
-
 <div class="exp-links">
 <a class="exp-link" data-zh="" href="https://xc.easyclaw.com" rel="noopener noreferrer" target="_blank">星辰 AI Agent</a>
 <a class="exp-link" data-zh="" href="https://club.easyclaw.com" rel="noopener noreferrer" target="_blank">龙虾社区</a>
@@ -925,8 +936,6 @@
 </div>
 </div>
 </div>
-
-
 <div class="exp-item reveal">
 <div class="exp-meta">
 <div class="exp-period">2024.10-2025.1</div>
@@ -1085,20 +1094,7 @@
 <footer>
 <div class="footer-name" data-zh="">吴优</div>
 <div class="footer-name" data-en="">WU YOU</div>
-<div class="footer-contact">
-<a class="contact-link" href="mailto:wyou561@163.com">
-<span>EMAIL</span> wyou561@163.com
-      </a>
-<a class="contact-link" data-zh="" href="tel:17689790507">
-<span>TEL</span> 176 8979 0507
-      </a>
-<a class="contact-link" data-en="" href="tel:+8617689790507">
-<span>TEL</span> +86 176 8979 0507
-      </a>
-<a class="contact-link" href="https://wuyou.uk">
-<span>WEB</span> wuyou.uk
-      </a>
-</div>
+<div class="footer-contact"><a class="contact-link" href="https://wuyou.uk">wuyou.uk</a><a class="contact-link" href="mailto:wyou561@163.com">wyou561@163.com</a><a class="contact-link" href="tel:+8617689790507">17689790507</a></div>
 </footer>
 <script>
     const btn = document.getElementById('langBtn');
@@ -1110,7 +1106,7 @@
       btn.textContent = lang === 'zh' ? 'EN' : '中文';
       document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
       document.title = lang === 'zh' ? '吴优 — 智能座舱 AI 产品经理' : 'Wu You — Digital Cockpit AI Product Manager';
-      localStorage.setItem('cv-lang', lang);
+      try { localStorage.setItem('cv-lang', lang); } catch (_) {}
     }
 
     btn.addEventListener('click', () => {
@@ -1118,8 +1114,8 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    const saved = localStorage.getItem('cv-lang');
-    if (saved) setLang(saved);
+    let saved; try { saved = localStorage.getItem('cv-lang'); } catch (_) {}
+    if (saved === 'en' || saved === 'zh') setLang(saved);
     else setLang('zh');
 
     const observer = new IntersectionObserver(entries => {
